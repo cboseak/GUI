@@ -35,7 +35,8 @@ namespace GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            rbSP_CheckedChanged(sender, e);
+            btRefreshSP_Click(sender, e);
         }
         /************************************************************
          * Tap: Connection Tap
@@ -87,14 +88,16 @@ namespace GUI
                 Parity par = Parity.None;
                 int dataBits = 8;
                 StopBits stpbits = StopBits.One;
-                port1 = new SerialPort(cbSP.Text, badRate, par, dataBits, stpbits);
-
-                port1.Open();
-
-                port1.DataReceived += new SerialDataReceivedEventHandler(port1_DataReceived);
+                if (port1 == null)
+                {
+                    port1 = new SerialPort(portName, badRate, par, dataBits, stpbits);
+                    port1.Open();
+                    port1.DataReceived += new SerialDataReceivedEventHandler(port1_DataReceived);
+                }
 
                 timer1.Interval = 200;
                 timer1.Enabled = true;
+              
             }
             else
             {
@@ -119,6 +122,7 @@ namespace GUI
                 foreach (string portName in serialPorts)
                 {
                     cbSP.Items.Add(portName);
+                    cbSP.Text = portName;
                 }
             }
         }
@@ -425,8 +429,8 @@ namespace GUI
             chartGyro.ChartAreas[0].AxisX.LabelStyle.Enabled = false;
 
             //----------------Magn
-            chartMagn.ChartAreas[0].AxisY.Maximum = 0.2;
-            chartMagn.ChartAreas[0].AxisY.Minimum = -0.2;
+            chartMagn.ChartAreas[0].AxisY.Maximum = 0.25;
+            chartMagn.ChartAreas[0].AxisY.Minimum = -0.25;
             chartMagn.ChartAreas[0].AxisY.Interval = 0.05;
             chartMagn.ChartAreas[0].AxisX.Minimum = xIndex - 0.24;
             chartMagn.ChartAreas[0].AxisX.Maximum = xIndex + 0.05; ;
