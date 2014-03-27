@@ -84,7 +84,7 @@ namespace GUI
             if (cbSP.Text != "")
             {
                 string portName = cbSP.Text;
-                int badRate = 38400;
+                int badRate = 115200;
                 Parity par = Parity.None;
                 int dataBits = 8;
                 StopBits stpbits = StopBits.One;
@@ -453,9 +453,9 @@ namespace GUI
             chartYaw.ChartAreas[0].AxisX.LabelStyle.Enabled = false;
            
             //----------------Roll
-            chartRoll.ChartAreas[0].AxisY.Maximum = 0.6;
-            chartRoll.ChartAreas[0].AxisY.Minimum = -0.6;
-            chartRoll.ChartAreas[0].AxisY.Interval = 0.3;
+            chartRoll.ChartAreas[0].AxisY.Maximum = 0.9;
+            chartRoll.ChartAreas[0].AxisY.Minimum = -0.9;
+            chartRoll.ChartAreas[0].AxisY.Interval = 0.45;
             chartRoll.ChartAreas[0].AxisX.Minimum = xIndex - 0.24;
             chartRoll.ChartAreas[0].AxisX.Maximum = xIndex + 0.05; ;
             chartRoll.ChartAreas[0].AxisX.LabelStyle.Enabled = false;
