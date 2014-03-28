@@ -27,10 +27,11 @@ namespace GUI
         public NetworkStream netStream = null;
 
         double xIndex = 0.00;
-
         public Form1()
         {
             InitializeComponent();
+            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -100,7 +100,6 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.button19 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -158,9 +157,11 @@
             this.cbyAcce = new System.Windows.Forms.CheckBox();
             this.cbzAcce = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.quadcopterModel1 = new GUI.QuadcopterModel();
             this.gbSP.SuspendLayout();
             this.gbWIFI.SuspendLayout();
             this.gbMethods.SuspendLayout();
@@ -172,7 +173,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -199,9 +199,10 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, -1);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1135, 713);
+            this.tabControl1.Size = new System.Drawing.Size(851, 579);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -212,10 +213,11 @@
             this.tabPage1.Controls.Add(this.gbWIFI);
             this.tabPage1.Controls.Add(this.gbRC);
             this.tabPage1.Controls.Add(this.gbMethods);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1127, 684);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(843, 553);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Connection";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -224,9 +226,10 @@
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(25, 397);
+            this.richTextBox1.Location = new System.Drawing.Point(19, 323);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1077, 240);
+            this.richTextBox1.Size = new System.Drawing.Size(809, 196);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "Connecting to Serial Port ...\n\nConnected Successfully to COM3";
             // 
@@ -234,9 +237,10 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(3, 656);
+            this.statusStrip1.Location = new System.Drawing.Point(2, 529);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1121, 25);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(839, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -244,7 +248,7 @@
             // 
             this.toolStripStatusLabel1.ForeColor = System.Drawing.Color.Green;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(93, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(77, 17);
             this.toolStripStatusLabel1.Text = "Connected ...";
             // 
             // gbSP
@@ -254,18 +258,21 @@
             this.gbSP.Controls.Add(this.btRefreshSP);
             this.gbSP.Controls.Add(this.btConnectSP);
             this.gbSP.Controls.Add(this.cbSP);
-            this.gbSP.Location = new System.Drawing.Point(411, 137);
+            this.gbSP.Location = new System.Drawing.Point(308, 111);
+            this.gbSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbSP.Name = "gbSP";
-            this.gbSP.Size = new System.Drawing.Size(322, 198);
+            this.gbSP.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbSP.Size = new System.Drawing.Size(242, 161);
             this.gbSP.TabIndex = 2;
             this.gbSP.TabStop = false;
             this.gbSP.Text = "Serial Port";
             // 
             // btRefreshSP
             // 
-            this.btRefreshSP.Location = new System.Drawing.Point(6, 79);
+            this.btRefreshSP.Location = new System.Drawing.Point(4, 64);
+            this.btRefreshSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btRefreshSP.Name = "btRefreshSP";
-            this.btRefreshSP.Size = new System.Drawing.Size(99, 35);
+            this.btRefreshSP.Size = new System.Drawing.Size(74, 28);
             this.btRefreshSP.TabIndex = 4;
             this.btRefreshSP.Text = "Refresh";
             this.btRefreshSP.UseVisualStyleBackColor = true;
@@ -273,9 +280,10 @@
             // 
             // btConnectSP
             // 
-            this.btConnectSP.Location = new System.Drawing.Point(6, 136);
+            this.btConnectSP.Location = new System.Drawing.Point(4, 110);
+            this.btConnectSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btConnectSP.Name = "btConnectSP";
-            this.btConnectSP.Size = new System.Drawing.Size(99, 35);
+            this.btConnectSP.Size = new System.Drawing.Size(74, 28);
             this.btConnectSP.TabIndex = 1;
             this.btConnectSP.Text = "Connect";
             this.btConnectSP.UseVisualStyleBackColor = true;
@@ -285,9 +293,10 @@
             // 
             this.cbSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSP.FormattingEnabled = true;
-            this.cbSP.Location = new System.Drawing.Point(6, 37);
+            this.cbSP.Location = new System.Drawing.Point(4, 30);
+            this.cbSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbSP.Name = "cbSP";
-            this.cbSP.Size = new System.Drawing.Size(310, 24);
+            this.cbSP.Size = new System.Drawing.Size(234, 21);
             this.cbSP.TabIndex = 3;
             // 
             // gbWIFI
@@ -297,9 +306,11 @@
             this.gbWIFI.Controls.Add(this.btRefreshWIFI);
             this.gbWIFI.Controls.Add(this.btConnectWIFI);
             this.gbWIFI.Controls.Add(this.cbWIFI);
-            this.gbWIFI.Location = new System.Drawing.Point(785, 137);
+            this.gbWIFI.Location = new System.Drawing.Point(589, 111);
+            this.gbWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbWIFI.Name = "gbWIFI";
-            this.gbWIFI.Size = new System.Drawing.Size(317, 198);
+            this.gbWIFI.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbWIFI.Size = new System.Drawing.Size(238, 161);
             this.gbWIFI.TabIndex = 2;
             this.gbWIFI.TabStop = false;
             this.gbWIFI.Text = "WIFI";
@@ -309,9 +320,10 @@
             this.btRefreshWIFI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btRefreshWIFI.Location = new System.Drawing.Point(7, 79);
+            this.btRefreshWIFI.Location = new System.Drawing.Point(5, 64);
+            this.btRefreshWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btRefreshWIFI.Name = "btRefreshWIFI";
-            this.btRefreshWIFI.Size = new System.Drawing.Size(99, 35);
+            this.btRefreshWIFI.Size = new System.Drawing.Size(74, 28);
             this.btRefreshWIFI.TabIndex = 6;
             this.btRefreshWIFI.Text = "Refresh";
             this.btRefreshWIFI.UseVisualStyleBackColor = true;
@@ -322,9 +334,10 @@
             this.btConnectWIFI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btConnectWIFI.Location = new System.Drawing.Point(7, 136);
+            this.btConnectWIFI.Location = new System.Drawing.Point(5, 110);
+            this.btConnectWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btConnectWIFI.Name = "btConnectWIFI";
-            this.btConnectWIFI.Size = new System.Drawing.Size(99, 35);
+            this.btConnectWIFI.Size = new System.Drawing.Size(74, 28);
             this.btConnectWIFI.TabIndex = 5;
             this.btConnectWIFI.Text = "Connect";
             this.btConnectWIFI.UseVisualStyleBackColor = true;
@@ -335,17 +348,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWIFI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWIFI.FormattingEnabled = true;
-            this.cbWIFI.Location = new System.Drawing.Point(7, 37);
+            this.cbWIFI.Location = new System.Drawing.Point(5, 30);
+            this.cbWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbWIFI.Name = "cbWIFI";
-            this.cbWIFI.Size = new System.Drawing.Size(304, 24);
+            this.cbWIFI.Size = new System.Drawing.Size(229, 21);
             this.cbWIFI.TabIndex = 4;
             // 
             // gbRC
             // 
             this.gbRC.AutoSize = true;
-            this.gbRC.Location = new System.Drawing.Point(25, 137);
+            this.gbRC.Location = new System.Drawing.Point(19, 111);
+            this.gbRC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbRC.Name = "gbRC";
-            this.gbRC.Size = new System.Drawing.Size(313, 198);
+            this.gbRC.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbRC.Size = new System.Drawing.Size(235, 161);
             this.gbRC.TabIndex = 1;
             this.gbRC.TabStop = false;
             this.gbRC.Text = "Radio Control";
@@ -359,9 +375,11 @@
             this.gbMethods.Controls.Add(this.rbWIF);
             this.gbMethods.Controls.Add(this.rbSP);
             this.gbMethods.Controls.Add(this.rbRC);
-            this.gbMethods.Location = new System.Drawing.Point(25, 19);
+            this.gbMethods.Location = new System.Drawing.Point(19, 15);
+            this.gbMethods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbMethods.Name = "gbMethods";
-            this.gbMethods.Size = new System.Drawing.Size(1077, 91);
+            this.gbMethods.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbMethods.Size = new System.Drawing.Size(824, 74);
             this.gbMethods.TabIndex = 0;
             this.gbMethods.TabStop = false;
             this.gbMethods.Text = "Methods";
@@ -369,9 +387,10 @@
             // rbWIF
             // 
             this.rbWIF.AutoSize = true;
-            this.rbWIF.Location = new System.Drawing.Point(767, 39);
+            this.rbWIF.Location = new System.Drawing.Point(575, 32);
+            this.rbWIF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbWIF.Name = "rbWIF";
-            this.rbWIF.Size = new System.Drawing.Size(56, 21);
+            this.rbWIF.Size = new System.Drawing.Size(48, 17);
             this.rbWIF.TabIndex = 3;
             this.rbWIF.Text = "WIFI";
             this.rbWIF.UseVisualStyleBackColor = true;
@@ -383,9 +402,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rbSP.AutoSize = true;
             this.rbSP.Checked = true;
-            this.rbSP.Location = new System.Drawing.Point(386, 39);
+            this.rbSP.Location = new System.Drawing.Point(290, 32);
+            this.rbSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbSP.Name = "rbSP";
-            this.rbSP.Size = new System.Drawing.Size(95, 21);
+            this.rbSP.Size = new System.Drawing.Size(73, 17);
             this.rbSP.TabIndex = 2;
             this.rbSP.TabStop = true;
             this.rbSP.Text = "Serial Port";
@@ -397,9 +417,10 @@
             this.rbRC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rbRC.AutoSize = true;
-            this.rbRC.Location = new System.Drawing.Point(6, 39);
+            this.rbRC.Location = new System.Drawing.Point(4, 32);
+            this.rbRC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbRC.Name = "rbRC";
-            this.rbRC.Size = new System.Drawing.Size(48, 21);
+            this.rbRC.Size = new System.Drawing.Size(40, 17);
             this.rbRC.TabIndex = 1;
             this.rbRC.Text = "RC";
             this.rbRC.UseVisualStyleBackColor = true;
@@ -410,10 +431,11 @@
             this.tabPage2.Controls.Add(this.groupBox7);
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1127, 684);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(843, 553);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Setting";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -429,45 +451,51 @@
             this.groupBox7.Controls.Add(this.label2);
             this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Controls.Add(this.comboBox4);
-            this.groupBox7.Location = new System.Drawing.Point(305, 28);
+            this.groupBox7.Location = new System.Drawing.Point(229, 23);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(803, 196);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Size = new System.Drawing.Size(602, 159);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Profile Configuration";
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(470, 105);
+            this.button9.Location = new System.Drawing.Point(352, 85);
+            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(150, 26);
+            this.button9.Size = new System.Drawing.Size(112, 21);
             this.button9.TabIndex = 8;
             this.button9.Text = "Save Changes";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(274, 135);
+            this.button8.Location = new System.Drawing.Point(206, 110);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(147, 26);
+            this.button8.Size = new System.Drawing.Size(110, 21);
             this.button8.TabIndex = 7;
             this.button8.Text = "Delete Profile";
             this.button8.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(274, 105);
+            this.button7.Location = new System.Drawing.Point(206, 85);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(147, 26);
+            this.button7.Size = new System.Drawing.Size(110, 21);
             this.button7.TabIndex = 6;
             this.button7.Text = "Edit Profile";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(274, 73);
+            this.button6.Location = new System.Drawing.Point(206, 59);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(147, 26);
+            this.button6.Size = new System.Drawing.Size(110, 21);
             this.button6.TabIndex = 5;
             this.button6.Text = "Add Profile";
             this.button6.UseVisualStyleBackColor = true;
@@ -476,26 +504,29 @@
             // 
             this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(470, 43);
+            this.comboBox5.Location = new System.Drawing.Point(352, 35);
+            this.comboBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(150, 24);
+            this.comboBox5.Size = new System.Drawing.Size(114, 21);
             this.comboBox5.TabIndex = 4;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(274, 45);
+            this.textBox1.Location = new System.Drawing.Point(206, 37);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(147, 22);
+            this.textBox1.Size = new System.Drawing.Size(111, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "Player 1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(467, 24);
+            this.label2.Location = new System.Drawing.Point(350, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 17);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mode";
             // 
@@ -503,9 +534,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(271, 21);
+            this.label1.Location = new System.Drawing.Point(203, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 17);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Profile Name";
             // 
@@ -513,17 +545,20 @@
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(6, 21);
+            this.comboBox4.Location = new System.Drawing.Point(4, 17);
+            this.comboBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(221, 24);
+            this.comboBox4.Size = new System.Drawing.Size(167, 21);
             this.comboBox4.TabIndex = 0;
             // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.pictureBox2);
-            this.groupBox6.Location = new System.Drawing.Point(27, 230);
+            this.groupBox6.Location = new System.Drawing.Point(20, 187);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1081, 424);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox6.Size = new System.Drawing.Size(811, 344);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "PID";
@@ -531,9 +566,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 21);
+            this.pictureBox2.Location = new System.Drawing.Point(4, 17);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1069, 397);
+            this.pictureBox2.Size = new System.Drawing.Size(802, 323);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -543,18 +579,21 @@
             this.groupBox5.Controls.Add(this.button5);
             this.groupBox5.Controls.Add(this.pictureBox1);
             this.groupBox5.Controls.Add(this.comboBox3);
-            this.groupBox5.Location = new System.Drawing.Point(27, 28);
+            this.groupBox5.Location = new System.Drawing.Point(20, 23);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(272, 196);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Size = new System.Drawing.Size(204, 159);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mode";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(150, 67);
+            this.button5.Location = new System.Drawing.Point(112, 54);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 30);
+            this.button5.Size = new System.Drawing.Size(78, 24);
             this.button5.TabIndex = 1;
             this.button5.Text = "Set";
             this.button5.UseVisualStyleBackColor = true;
@@ -562,9 +601,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 67);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 54);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 123);
+            this.pictureBox1.Size = new System.Drawing.Size(94, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -573,9 +613,10 @@
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(6, 21);
+            this.comboBox3.Location = new System.Drawing.Point(4, 17);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(260, 24);
+            this.comboBox3.Size = new System.Drawing.Size(196, 21);
             this.comboBox3.TabIndex = 0;
             // 
             // tabPage3
@@ -584,33 +625,26 @@
             this.tabPage3.Controls.Add(this.groupBox10);
             this.tabPage3.Controls.Add(this.groupBox9);
             this.tabPage3.Controls.Add(this.groupBox8);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1127, 684);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Size = new System.Drawing.Size(843, 553);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Control";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.pictureBox4);
-            this.groupBox11.Location = new System.Drawing.Point(17, 316);
+            this.groupBox11.Controls.Add(this.elementHost1);
+            this.groupBox11.Location = new System.Drawing.Point(13, 257);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(524, 352);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox11.Size = new System.Drawing.Size(393, 286);
             this.groupBox11.TabIndex = 11;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Animation";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(17, 21);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(489, 316);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
             // 
             // groupBox10
             // 
@@ -623,9 +657,11 @@
             this.groupBox10.Controls.Add(this.button16);
             this.groupBox10.Controls.Add(this.button14);
             this.groupBox10.Controls.Add(this.button15);
-            this.groupBox10.Location = new System.Drawing.Point(17, 80);
+            this.groupBox10.Location = new System.Drawing.Point(13, 65);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(524, 230);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox10.Size = new System.Drawing.Size(393, 187);
             this.groupBox10.TabIndex = 10;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Icons";
@@ -633,9 +669,10 @@
             // button19
             // 
             this.button19.BackColor = System.Drawing.Color.Red;
-            this.button19.Location = new System.Drawing.Point(448, 21);
+            this.button19.Location = new System.Drawing.Point(336, 17);
+            this.button19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(64, 192);
+            this.button19.Size = new System.Drawing.Size(48, 156);
             this.button19.TabIndex = 10;
             this.button19.Text = "Emergency";
             this.button19.UseVisualStyleBackColor = false;
@@ -643,9 +680,10 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.Orange;
-            this.button11.Location = new System.Drawing.Point(85, 21);
+            this.button11.Location = new System.Drawing.Point(64, 17);
+            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.Size = new System.Drawing.Size(56, 19);
             this.button11.TabIndex = 2;
             this.button11.Text = "Rotate L.";
             this.button11.UseVisualStyleBackColor = false;
@@ -653,9 +691,10 @@
             // button18
             // 
             this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button18.Location = new System.Drawing.Point(6, 153);
+            this.button18.Location = new System.Drawing.Point(4, 124);
+            this.button18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(55, 46);
+            this.button18.Size = new System.Drawing.Size(41, 37);
             this.button18.TabIndex = 9;
             this.button18.Text = "Down";
             this.button18.UseVisualStyleBackColor = false;
@@ -663,9 +702,10 @@
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.Orange;
-            this.button12.Location = new System.Drawing.Point(298, 21);
+            this.button12.Location = new System.Drawing.Point(224, 17);
+            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(83, 23);
+            this.button12.Size = new System.Drawing.Size(62, 19);
             this.button12.TabIndex = 3;
             this.button12.Text = "Rotate R.";
             this.button12.UseVisualStyleBackColor = false;
@@ -673,9 +713,10 @@
             // button17
             // 
             this.button17.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button17.Location = new System.Drawing.Point(6, 49);
+            this.button17.Location = new System.Drawing.Point(4, 40);
+            this.button17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(55, 46);
+            this.button17.Size = new System.Drawing.Size(41, 37);
             this.button17.TabIndex = 8;
             this.button17.Text = "Up";
             this.button17.UseVisualStyleBackColor = false;
@@ -683,9 +724,10 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button13.Location = new System.Drawing.Point(190, 49);
+            this.button13.Location = new System.Drawing.Point(142, 40);
+            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(77, 46);
+            this.button13.Size = new System.Drawing.Size(58, 37);
             this.button13.TabIndex = 4;
             this.button13.Text = "Forward";
             this.button13.UseVisualStyleBackColor = false;
@@ -693,9 +735,10 @@
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button16.Location = new System.Drawing.Point(268, 101);
+            this.button16.Location = new System.Drawing.Point(201, 82);
+            this.button16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(77, 46);
+            this.button16.Size = new System.Drawing.Size(58, 37);
             this.button16.TabIndex = 7;
             this.button16.Text = "Right";
             this.button16.UseVisualStyleBackColor = false;
@@ -703,9 +746,10 @@
             // button14
             // 
             this.button14.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button14.Location = new System.Drawing.Point(190, 153);
+            this.button14.Location = new System.Drawing.Point(142, 124);
+            this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(77, 46);
+            this.button14.Size = new System.Drawing.Size(58, 37);
             this.button14.TabIndex = 5;
             this.button14.Text = "Backward";
             this.button14.UseVisualStyleBackColor = false;
@@ -713,9 +757,10 @@
             // button15
             // 
             this.button15.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button15.Location = new System.Drawing.Point(111, 101);
+            this.button15.Location = new System.Drawing.Point(83, 82);
+            this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(77, 46);
+            this.button15.Size = new System.Drawing.Size(58, 37);
             this.button15.TabIndex = 6;
             this.button15.Text = "Left";
             this.button15.UseVisualStyleBackColor = false;
@@ -726,9 +771,11 @@
             this.groupBox9.Controls.Add(this.button10);
             this.groupBox9.Controls.Add(this.radioButton8);
             this.groupBox9.Controls.Add(this.radioButton7);
-            this.groupBox9.Location = new System.Drawing.Point(561, 16);
+            this.groupBox9.Location = new System.Drawing.Point(421, 13);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(545, 652);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Size = new System.Drawing.Size(409, 530);
             this.groupBox9.TabIndex = 1;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "GPS";
@@ -736,18 +783,20 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 64);
+            this.pictureBox3.Location = new System.Drawing.Point(9, 52);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(520, 573);
+            this.pictureBox3.Size = new System.Drawing.Size(390, 466);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(375, 24);
+            this.button10.Location = new System.Drawing.Point(281, 20);
+            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(104, 34);
+            this.button10.Size = new System.Drawing.Size(78, 28);
             this.button10.TabIndex = 2;
             this.button10.Text = "Refresh";
             this.button10.UseVisualStyleBackColor = true;
@@ -755,9 +804,10 @@
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(220, 31);
+            this.radioButton8.Location = new System.Drawing.Point(165, 25);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(73, 21);
+            this.radioButton8.Size = new System.Drawing.Size(58, 17);
             this.radioButton8.TabIndex = 1;
             this.radioButton8.TabStop = true;
             this.radioButton8.Text = "Enable";
@@ -766,9 +816,10 @@
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(39, 31);
+            this.radioButton7.Location = new System.Drawing.Point(29, 25);
+            this.radioButton7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(76, 21);
+            this.radioButton7.Size = new System.Drawing.Size(60, 17);
             this.radioButton7.TabIndex = 0;
             this.radioButton7.TabStop = true;
             this.radioButton7.Text = "Disable";
@@ -779,9 +830,11 @@
             this.groupBox8.Controls.Add(this.radioButton6);
             this.groupBox8.Controls.Add(this.radioButton5);
             this.groupBox8.Controls.Add(this.radioButton4);
-            this.groupBox8.Location = new System.Drawing.Point(17, 16);
+            this.groupBox8.Location = new System.Drawing.Point(13, 13);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(524, 58);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Size = new System.Drawing.Size(393, 47);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Method";
@@ -789,9 +842,10 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(386, 21);
+            this.radioButton6.Location = new System.Drawing.Point(290, 17);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(120, 21);
+            this.radioButton6.Size = new System.Drawing.Size(92, 17);
             this.radioButton6.TabIndex = 3;
             this.radioButton6.TabStop = true;
             this.radioButton6.Text = "PS3 Controller";
@@ -800,9 +854,10 @@
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(190, 21);
+            this.radioButton5.Location = new System.Drawing.Point(142, 17);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(88, 21);
+            this.radioButton5.Size = new System.Drawing.Size(69, 17);
             this.radioButton5.TabIndex = 2;
             this.radioButton5.TabStop = true;
             this.radioButton5.Text = "keyboard";
@@ -811,9 +866,10 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(6, 21);
+            this.radioButton4.Location = new System.Drawing.Point(4, 17);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(62, 21);
+            this.radioButton4.Size = new System.Drawing.Size(51, 17);
             this.radioButton4.TabIndex = 1;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Icons";
@@ -824,10 +880,11 @@
             this.tabPage4.Controls.Add(this.groupBox3);
             this.tabPage4.Controls.Add(this.groupBox2);
             this.tabPage4.Controls.Add(this.groupBox1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1127, 684);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Size = new System.Drawing.Size(843, 553);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Sensors";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -846,106 +903,120 @@
             this.groupBox3.Controls.Add(this.progressBar3);
             this.groupBox3.Controls.Add(this.progressBar2);
             this.groupBox3.Controls.Add(this.progressBar1);
-            this.groupBox3.Location = new System.Drawing.Point(8, 428);
+            this.groupBox3.Location = new System.Drawing.Point(6, 348);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(438, 256);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(328, 208);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Motors";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(6, 192);
+            this.label6.Location = new System.Drawing.Point(4, 156);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 26);
+            this.label6.Size = new System.Drawing.Size(71, 21);
             this.label6.TabIndex = 11;
             this.label6.Text = "MOTOR 4";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(6, 139);
+            this.label5.Location = new System.Drawing.Point(4, 113);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 26);
+            this.label5.Size = new System.Drawing.Size(71, 21);
             this.label5.TabIndex = 10;
             this.label5.Text = "MOTOR 3";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(6, 86);
+            this.label4.Location = new System.Drawing.Point(4, 70);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 26);
+            this.label4.Size = new System.Drawing.Size(71, 21);
             this.label4.TabIndex = 9;
             this.label4.Text = "MOTOR 2";
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 33);
+            this.label3.Location = new System.Drawing.Point(4, 27);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 26);
+            this.label3.Size = new System.Drawing.Size(71, 21);
             this.label3.TabIndex = 8;
             this.label3.Text = "MOTOR 1";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(324, 193);
+            this.textBox5.Location = new System.Drawing.Point(243, 157);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(50, 22);
+            this.textBox5.Size = new System.Drawing.Size(38, 20);
             this.textBox5.TabIndex = 7;
             this.textBox5.Text = "%50";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(324, 141);
+            this.textBox4.Location = new System.Drawing.Point(243, 115);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 22);
+            this.textBox4.Size = new System.Drawing.Size(38, 20);
             this.textBox4.TabIndex = 6;
             this.textBox4.Text = "%50";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(324, 83);
+            this.textBox3.Location = new System.Drawing.Point(243, 67);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(50, 22);
+            this.textBox3.Size = new System.Drawing.Size(38, 20);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "%50";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(324, 33);
+            this.textBox2.Location = new System.Drawing.Point(243, 27);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 22);
+            this.textBox2.Size = new System.Drawing.Size(38, 20);
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "%50";
             // 
             // progressBar4
             // 
-            this.progressBar4.Location = new System.Drawing.Point(123, 180);
+            this.progressBar4.Location = new System.Drawing.Point(92, 146);
+            this.progressBar4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBar4.Name = "progressBar4";
-            this.progressBar4.Size = new System.Drawing.Size(195, 47);
+            this.progressBar4.Size = new System.Drawing.Size(146, 38);
             this.progressBar4.TabIndex = 3;
             this.progressBar4.Value = 50;
             // 
             // progressBar3
             // 
-            this.progressBar3.Location = new System.Drawing.Point(123, 21);
+            this.progressBar3.Location = new System.Drawing.Point(92, 17);
+            this.progressBar3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(195, 47);
+            this.progressBar3.Size = new System.Drawing.Size(146, 38);
             this.progressBar3.TabIndex = 2;
             this.progressBar3.Value = 50;
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(123, 127);
+            this.progressBar2.Location = new System.Drawing.Point(92, 103);
+            this.progressBar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(195, 47);
+            this.progressBar2.Size = new System.Drawing.Size(146, 38);
             this.progressBar2.TabIndex = 1;
             this.progressBar2.Value = 50;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(123, 74);
+            this.progressBar1.Location = new System.Drawing.Point(92, 60);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(195, 47);
+            this.progressBar1.Size = new System.Drawing.Size(146, 38);
             this.progressBar1.TabIndex = 0;
             this.progressBar1.Value = 50;
             // 
@@ -960,9 +1031,11 @@
             this.groupBox2.Controls.Add(this.cbActualPitch);
             this.groupBox2.Controls.Add(this.cbDesiredRoll);
             this.groupBox2.Controls.Add(this.cbDesiredPitch);
-            this.groupBox2.Location = new System.Drawing.Point(8, 6);
+            this.groupBox2.Location = new System.Drawing.Point(6, 5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(438, 416);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(328, 338);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PID Data";
@@ -973,7 +1046,8 @@
             this.chartYaw.ChartAreas.Add(chartArea7);
             legend7.Name = "Legend1";
             this.chartYaw.Legends.Add(legend7);
-            this.chartYaw.Location = new System.Drawing.Point(9, 176);
+            this.chartYaw.Location = new System.Drawing.Point(7, 143);
+            this.chartYaw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartYaw.Name = "chartYaw";
             series16.ChartArea = "ChartArea1";
             series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -989,7 +1063,7 @@
             series17.Name = "Y";
             this.chartYaw.Series.Add(series16);
             this.chartYaw.Series.Add(series17);
-            this.chartYaw.Size = new System.Drawing.Size(423, 103);
+            this.chartYaw.Size = new System.Drawing.Size(317, 84);
             this.chartYaw.TabIndex = 22;
             this.chartYaw.Text = "chart1";
             title7.Name = "Yaw Chart Title";
@@ -1002,9 +1076,10 @@
             this.cbActualYaw.Checked = true;
             this.cbActualYaw.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbActualYaw.ForeColor = System.Drawing.Color.Blue;
-            this.cbActualYaw.Location = new System.Drawing.Point(71, 149);
+            this.cbActualYaw.Location = new System.Drawing.Point(53, 121);
+            this.cbActualYaw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbActualYaw.Name = "cbActualYaw";
-            this.cbActualYaw.Size = new System.Drawing.Size(69, 21);
+            this.cbActualYaw.Size = new System.Drawing.Size(56, 17);
             this.cbActualYaw.TabIndex = 21;
             this.cbActualYaw.Text = "Actual";
             this.cbActualYaw.UseVisualStyleBackColor = true;
@@ -1013,9 +1088,10 @@
             // 
             this.cbDesiredYaw.AutoSize = true;
             this.cbDesiredYaw.ForeColor = System.Drawing.Color.Red;
-            this.cbDesiredYaw.Location = new System.Drawing.Point(268, 148);
+            this.cbDesiredYaw.Location = new System.Drawing.Point(201, 120);
+            this.cbDesiredYaw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDesiredYaw.Name = "cbDesiredYaw";
-            this.cbDesiredYaw.Size = new System.Drawing.Size(79, 21);
+            this.cbDesiredYaw.Size = new System.Drawing.Size(62, 17);
             this.cbDesiredYaw.TabIndex = 20;
             this.cbDesiredYaw.Text = "Desired";
             this.cbDesiredYaw.UseVisualStyleBackColor = true;
@@ -1026,7 +1102,8 @@
             this.chartRoll.ChartAreas.Add(chartArea8);
             legend8.Name = "Legend1";
             this.chartRoll.Legends.Add(legend8);
-            this.chartRoll.Location = new System.Drawing.Point(9, 307);
+            this.chartRoll.Location = new System.Drawing.Point(7, 249);
+            this.chartRoll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartRoll.Name = "chartRoll";
             series18.ChartArea = "ChartArea1";
             series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1042,7 +1119,7 @@
             series19.Name = "Y";
             this.chartRoll.Series.Add(series18);
             this.chartRoll.Series.Add(series19);
-            this.chartRoll.Size = new System.Drawing.Size(423, 103);
+            this.chartRoll.Size = new System.Drawing.Size(317, 84);
             this.chartRoll.TabIndex = 19;
             this.chartRoll.Text = "chart1";
             title8.Name = "Roll Chart Title";
@@ -1055,9 +1132,10 @@
             this.cbActualRoll.Checked = true;
             this.cbActualRoll.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbActualRoll.ForeColor = System.Drawing.Color.Blue;
-            this.cbActualRoll.Location = new System.Drawing.Point(72, 285);
+            this.cbActualRoll.Location = new System.Drawing.Point(54, 232);
+            this.cbActualRoll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbActualRoll.Name = "cbActualRoll";
-            this.cbActualRoll.Size = new System.Drawing.Size(69, 21);
+            this.cbActualRoll.Size = new System.Drawing.Size(56, 17);
             this.cbActualRoll.TabIndex = 18;
             this.cbActualRoll.Text = "Actual";
             this.cbActualRoll.UseVisualStyleBackColor = true;
@@ -1068,7 +1146,8 @@
             this.chartPitch.ChartAreas.Add(chartArea9);
             legend9.Name = "Legend1";
             this.chartPitch.Legends.Add(legend9);
-            this.chartPitch.Location = new System.Drawing.Point(9, 39);
+            this.chartPitch.Location = new System.Drawing.Point(7, 32);
+            this.chartPitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartPitch.Name = "chartPitch";
             series20.ChartArea = "ChartArea1";
             series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1084,7 +1163,7 @@
             series21.Name = "Y";
             this.chartPitch.Series.Add(series20);
             this.chartPitch.Series.Add(series21);
-            this.chartPitch.Size = new System.Drawing.Size(423, 103);
+            this.chartPitch.Size = new System.Drawing.Size(317, 84);
             this.chartPitch.TabIndex = 16;
             this.chartPitch.Text = "chart1";
             title9.Name = "Pitch Chart Title";
@@ -1097,9 +1176,10 @@
             this.cbActualPitch.Checked = true;
             this.cbActualPitch.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbActualPitch.ForeColor = System.Drawing.Color.Blue;
-            this.cbActualPitch.Location = new System.Drawing.Point(71, 21);
+            this.cbActualPitch.Location = new System.Drawing.Point(53, 17);
+            this.cbActualPitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbActualPitch.Name = "cbActualPitch";
-            this.cbActualPitch.Size = new System.Drawing.Size(69, 21);
+            this.cbActualPitch.Size = new System.Drawing.Size(56, 17);
             this.cbActualPitch.TabIndex = 7;
             this.cbActualPitch.Text = "Actual";
             this.cbActualPitch.UseVisualStyleBackColor = true;
@@ -1108,9 +1188,10 @@
             // 
             this.cbDesiredRoll.AutoSize = true;
             this.cbDesiredRoll.ForeColor = System.Drawing.Color.Red;
-            this.cbDesiredRoll.Location = new System.Drawing.Point(269, 280);
+            this.cbDesiredRoll.Location = new System.Drawing.Point(202, 228);
+            this.cbDesiredRoll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDesiredRoll.Name = "cbDesiredRoll";
-            this.cbDesiredRoll.Size = new System.Drawing.Size(79, 21);
+            this.cbDesiredRoll.Size = new System.Drawing.Size(62, 17);
             this.cbDesiredRoll.TabIndex = 17;
             this.cbDesiredRoll.Text = "Desired";
             this.cbDesiredRoll.UseVisualStyleBackColor = true;
@@ -1119,9 +1200,10 @@
             // 
             this.cbDesiredPitch.AutoSize = true;
             this.cbDesiredPitch.ForeColor = System.Drawing.Color.Red;
-            this.cbDesiredPitch.Location = new System.Drawing.Point(268, 21);
+            this.cbDesiredPitch.Location = new System.Drawing.Point(201, 17);
+            this.cbDesiredPitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbDesiredPitch.Name = "cbDesiredPitch";
-            this.cbDesiredPitch.Size = new System.Drawing.Size(79, 21);
+            this.cbDesiredPitch.Size = new System.Drawing.Size(62, 17);
             this.cbDesiredPitch.TabIndex = 6;
             this.cbDesiredPitch.Text = "Desired";
             this.cbDesiredPitch.UseVisualStyleBackColor = true;
@@ -1140,9 +1222,11 @@
             this.groupBox1.Controls.Add(this.cbxAcce);
             this.groupBox1.Controls.Add(this.cbyAcce);
             this.groupBox1.Controls.Add(this.cbzAcce);
-            this.groupBox1.Location = new System.Drawing.Point(452, 6);
+            this.groupBox1.Location = new System.Drawing.Point(339, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(669, 678);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(502, 551);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sensors";
@@ -1153,7 +1237,8 @@
             this.chartMagn.ChartAreas.Add(chartArea10);
             legend10.Name = "Legend1";
             this.chartMagn.Legends.Add(legend10);
-            this.chartMagn.Location = new System.Drawing.Point(101, 442);
+            this.chartMagn.Location = new System.Drawing.Point(76, 359);
+            this.chartMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartMagn.Name = "chartMagn";
             series22.ChartArea = "ChartArea1";
             series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1176,7 +1261,7 @@
             this.chartMagn.Series.Add(series22);
             this.chartMagn.Series.Add(series23);
             this.chartMagn.Series.Add(series24);
-            this.chartMagn.Size = new System.Drawing.Size(547, 230);
+            this.chartMagn.Size = new System.Drawing.Size(410, 187);
             this.chartMagn.TabIndex = 23;
             this.chartMagn.Text = "chart2";
             title10.Name = "Magnetometers  Chart Title";
@@ -1189,9 +1274,10 @@
             this.cbxMagn.Checked = true;
             this.cbxMagn.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxMagn.ForeColor = System.Drawing.Color.Blue;
-            this.cbxMagn.Location = new System.Drawing.Point(18, 482);
+            this.cbxMagn.Location = new System.Drawing.Point(14, 392);
+            this.cbxMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxMagn.Name = "cbxMagn";
-            this.cbxMagn.Size = new System.Drawing.Size(39, 21);
+            this.cbxMagn.Size = new System.Drawing.Size(33, 17);
             this.cbxMagn.TabIndex = 20;
             this.cbxMagn.Text = "X";
             this.cbxMagn.UseVisualStyleBackColor = true;
@@ -1202,9 +1288,10 @@
             this.cbyMagn.Checked = true;
             this.cbyMagn.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbyMagn.ForeColor = System.Drawing.Color.Purple;
-            this.cbyMagn.Location = new System.Drawing.Point(18, 537);
+            this.cbyMagn.Location = new System.Drawing.Point(14, 436);
+            this.cbyMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbyMagn.Name = "cbyMagn";
-            this.cbyMagn.Size = new System.Drawing.Size(39, 21);
+            this.cbyMagn.Size = new System.Drawing.Size(33, 17);
             this.cbyMagn.TabIndex = 21;
             this.cbyMagn.Text = "Y";
             this.cbyMagn.UseVisualStyleBackColor = true;
@@ -1215,9 +1302,10 @@
             this.cbzMagn.Checked = true;
             this.cbzMagn.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbzMagn.ForeColor = System.Drawing.Color.Green;
-            this.cbzMagn.Location = new System.Drawing.Point(18, 591);
+            this.cbzMagn.Location = new System.Drawing.Point(14, 480);
+            this.cbzMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbzMagn.Name = "cbzMagn";
-            this.cbzMagn.Size = new System.Drawing.Size(39, 21);
+            this.cbzMagn.Size = new System.Drawing.Size(33, 17);
             this.cbzMagn.TabIndex = 22;
             this.cbzMagn.Text = "Z";
             this.cbzMagn.UseVisualStyleBackColor = true;
@@ -1228,7 +1316,8 @@
             this.chartGyro.ChartAreas.Add(chartArea11);
             legend11.Name = "Legend1";
             this.chartGyro.Legends.Add(legend11);
-            this.chartGyro.Location = new System.Drawing.Point(101, 222);
+            this.chartGyro.Location = new System.Drawing.Point(76, 180);
+            this.chartGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartGyro.Name = "chartGyro";
             series25.ChartArea = "ChartArea1";
             series25.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1251,7 +1340,7 @@
             this.chartGyro.Series.Add(series25);
             this.chartGyro.Series.Add(series26);
             this.chartGyro.Series.Add(series27);
-            this.chartGyro.Size = new System.Drawing.Size(547, 214);
+            this.chartGyro.Size = new System.Drawing.Size(410, 174);
             this.chartGyro.TabIndex = 19;
             this.chartGyro.Text = "chart1";
             title11.Name = "Gyroscope Chart Title";
@@ -1264,9 +1353,10 @@
             this.cbxGyro.Checked = true;
             this.cbxGyro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxGyro.ForeColor = System.Drawing.Color.Blue;
-            this.cbxGyro.Location = new System.Drawing.Point(18, 269);
+            this.cbxGyro.Location = new System.Drawing.Point(14, 219);
+            this.cbxGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxGyro.Name = "cbxGyro";
-            this.cbxGyro.Size = new System.Drawing.Size(39, 21);
+            this.cbxGyro.Size = new System.Drawing.Size(33, 17);
             this.cbxGyro.TabIndex = 16;
             this.cbxGyro.Text = "X";
             this.cbxGyro.UseVisualStyleBackColor = true;
@@ -1277,9 +1367,10 @@
             this.cbyGyro.Checked = true;
             this.cbyGyro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbyGyro.ForeColor = System.Drawing.Color.Purple;
-            this.cbyGyro.Location = new System.Drawing.Point(18, 312);
+            this.cbyGyro.Location = new System.Drawing.Point(14, 254);
+            this.cbyGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbyGyro.Name = "cbyGyro";
-            this.cbyGyro.Size = new System.Drawing.Size(39, 21);
+            this.cbyGyro.Size = new System.Drawing.Size(33, 17);
             this.cbyGyro.TabIndex = 17;
             this.cbyGyro.Text = "Y";
             this.cbyGyro.UseVisualStyleBackColor = true;
@@ -1290,9 +1381,10 @@
             this.cbzGyro.Checked = true;
             this.cbzGyro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbzGyro.ForeColor = System.Drawing.Color.Green;
-            this.cbzGyro.Location = new System.Drawing.Point(18, 359);
+            this.cbzGyro.Location = new System.Drawing.Point(14, 292);
+            this.cbzGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbzGyro.Name = "cbzGyro";
-            this.cbzGyro.Size = new System.Drawing.Size(39, 21);
+            this.cbzGyro.Size = new System.Drawing.Size(33, 17);
             this.cbzGyro.TabIndex = 18;
             this.cbzGyro.Text = "Z";
             this.cbzGyro.UseVisualStyleBackColor = true;
@@ -1303,7 +1395,8 @@
             this.chartAcce.ChartAreas.Add(chartArea12);
             legend12.Name = "Legend1";
             this.chartAcce.Legends.Add(legend12);
-            this.chartAcce.Location = new System.Drawing.Point(101, 21);
+            this.chartAcce.Location = new System.Drawing.Point(76, 17);
+            this.chartAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartAcce.Name = "chartAcce";
             series28.ChartArea = "ChartArea1";
             series28.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1326,7 +1419,7 @@
             this.chartAcce.Series.Add(series28);
             this.chartAcce.Series.Add(series29);
             this.chartAcce.Series.Add(series30);
-            this.chartAcce.Size = new System.Drawing.Size(547, 195);
+            this.chartAcce.Size = new System.Drawing.Size(410, 158);
             this.chartAcce.TabIndex = 15;
             this.chartAcce.Text = "chartAcce";
             title12.Name = "Acceleration Chart Title";
@@ -1339,9 +1432,10 @@
             this.cbxAcce.Checked = true;
             this.cbxAcce.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxAcce.ForeColor = System.Drawing.Color.Blue;
-            this.cbxAcce.Location = new System.Drawing.Point(18, 62);
+            this.cbxAcce.Location = new System.Drawing.Point(14, 50);
+            this.cbxAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbxAcce.Name = "cbxAcce";
-            this.cbxAcce.Size = new System.Drawing.Size(39, 21);
+            this.cbxAcce.Size = new System.Drawing.Size(33, 17);
             this.cbxAcce.TabIndex = 3;
             this.cbxAcce.Text = "X";
             this.cbxAcce.UseVisualStyleBackColor = true;
@@ -1352,9 +1446,10 @@
             this.cbyAcce.Checked = true;
             this.cbyAcce.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbyAcce.ForeColor = System.Drawing.Color.Purple;
-            this.cbyAcce.Location = new System.Drawing.Point(18, 101);
+            this.cbyAcce.Location = new System.Drawing.Point(14, 82);
+            this.cbyAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbyAcce.Name = "cbyAcce";
-            this.cbyAcce.Size = new System.Drawing.Size(39, 21);
+            this.cbyAcce.Size = new System.Drawing.Size(33, 17);
             this.cbyAcce.TabIndex = 4;
             this.cbyAcce.Text = "Y";
             this.cbyAcce.UseVisualStyleBackColor = true;
@@ -1365,9 +1460,10 @@
             this.cbzAcce.Checked = true;
             this.cbzAcce.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbzAcce.ForeColor = System.Drawing.Color.Green;
-            this.cbzAcce.Location = new System.Drawing.Point(18, 142);
+            this.cbzAcce.Location = new System.Drawing.Point(14, 115);
+            this.cbzAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbzAcce.Name = "cbzAcce";
-            this.cbzAcce.Size = new System.Drawing.Size(39, 21);
+            this.cbzAcce.Size = new System.Drawing.Size(33, 17);
             this.cbzAcce.TabIndex = 5;
             this.cbzAcce.Text = "Z";
             this.cbzAcce.UseVisualStyleBackColor = true;
@@ -1376,13 +1472,22 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // elementHost1
+            // 
+            this.elementHost1.Location = new System.Drawing.Point(11, 18);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(371, 256);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.quadcopterModel1;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 715);
+            this.ClientSize = new System.Drawing.Size(853, 581);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Senior Design Project";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1404,7 +1509,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
@@ -1486,7 +1590,6 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox cbzAcce;
         private System.Windows.Forms.CheckBox cbyAcce;
@@ -1525,6 +1628,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRoll;
         private System.Windows.Forms.CheckBox cbActualRoll;
         private System.Windows.Forms.CheckBox cbDesiredRoll;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private QuadcopterModel quadcopterModel1;
     }
 }
 
