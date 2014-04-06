@@ -420,6 +420,7 @@ namespace GUI
                                 0x40, 0x41, 0x42,
                             };
             buffer2.Insert(0, 0x02); //Read reg
+            buffer2.Insert(buffer2.Count, 0xFF); //add End of Transmission byte
             buffer2.Insert(0, (byte)(buffer2.Count() + 1));
             byte[] buffer = buffer2.ToArray();
 
