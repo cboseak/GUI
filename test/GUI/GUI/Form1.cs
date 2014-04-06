@@ -51,9 +51,9 @@ namespace GUI
             public short gyro_y_raw;
             public short gyro_z_raw;
             public short gyro_temp_raw;
-            public short gyro_x_raw_avg;
-            public short gyro_y_raw_avg;
-            public short gyro_z_raw_avg;
+            public float gyro_x_raw_avg;
+            public float gyro_y_raw_avg;
+            public float gyro_z_raw_avg;
 
 
             public float mag_x;
