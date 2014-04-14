@@ -37,6 +37,9 @@ namespace GUI
             public short accel_y_raw;
             public short accel_z_raw;
             public short accel_temp_raw;
+            public float accel_x_raw_avg;
+            public float accel_y_raw_avg;
+            public float accel_z_raw_avg;
 
             public float gyro_x;
             public float gyro_y;
@@ -61,6 +64,33 @@ namespace GUI
             public float pitch;
             public float yaw;
             public float roll;
+            public float scaled_yaw;
+            public float desired_pitch;
+            public float desired_yaw;
+            public float desired_roll;
+            public float desired_throttle;
+
+            public float motor1;
+            public float motor2;
+            public float motor3;
+            public float motor4;
+
+            public float v_batt;
+
+            public float filter_RollPitch_P;
+            public float filter_RollPitch_I;
+            public float filter_Yaw_P;
+            public float filter_Yaw_I;
+
+            public float PID_Roll_P;
+            public float PID_Roll_I;
+            public float PID_Roll_D;
+            public float PID_Pitch_P;
+            public float PID_Pitch_I;
+            public float PID_Pitch_D;
+            public float PID_Yaw_P;
+            public float PID_Yaw_I;
+            public float PID_Yaw_D;
 
         }
         List<byte> RxBuffer = new List<byte>();
@@ -171,8 +201,88 @@ namespace GUI
          * Purpose          : 
          * Last Modification:
          * **********************************************************/
+        private void btWritePID_Click(object sender, EventArgs e)
+        {
+            send_WritePID();
+        }
 
+        private void btReadPID_Click(object sender, EventArgs e)
+        {
+            //Motor PID
+            //Roll
+            tbMotorRollP.Text = CurrRegs.PID_Roll_P.ToString("0.0######");
+            tbMotorRollI.Text = CurrRegs.PID_Roll_I.ToString("0.0######");
+            tbMotorRollD.Text = CurrRegs.PID_Roll_D.ToString("0.0######");
+            //pitch
+            tbMotorPitchP.Text = CurrRegs.PID_Pitch_P.ToString("0.0######");
+            tbMotorPitchI.Text = CurrRegs.PID_Pitch_I.ToString("0.0######");
+            tbMotorPitchD.Text = CurrRegs.PID_Pitch_D.ToString("0.0######");
+            //yaw
+            tbMotorYawP.Text = CurrRegs.PID_Yaw_P.ToString("0.0######");
+            tbMotorYawI.Text = CurrRegs.PID_Yaw_I.ToString("0.0######");
+            tbMotorYawD.Text = CurrRegs.PID_Yaw_D.ToString("0.0######");
 
+            //Filter
+            //Roll,Pitch
+            tbFilterRollPitchP.Text = CurrRegs.filter_RollPitch_P.ToString("0.0######");
+            tbFilterRollPitchI.Text = CurrRegs.filter_RollPitch_I.ToString("0.0######");
+            //yaw
+            tbFilterYawP.Text = CurrRegs.filter_Yaw_P.ToString("0.0######");
+            tbFilterYawI.Text = CurrRegs.filter_Yaw_I.ToString("0.0######");
+        }
+
+        private void btResetPID_Click(object sender, EventArgs e)
+        {
+            send_ResetPID();
+        }
+
+        private void btResetFilter_Click(object sender, EventArgs e)
+        {
+            send_ResetFilter();
+        }
+
+        private void btIdleMotor_Click(object sender, EventArgs e)
+        {
+            send_IdleMotors();
+        }
+
+        private void btSoftRestart_Click(object sender, EventArgs e)
+        {
+            //Doesn't do anything atm
+            send_SoftRestart();
+        }
+
+        private void btShutoffMotors_Click(object sender, EventArgs e)
+        {
+            send_ShuttoffMotors();
+        }
+
+        private void updateMotors()
+        {
+            float max_val = 3250.0F;
+            float min_val = 3000.0F;
+
+            tbMotor1.Text = CurrRegs.motor1.ToString();
+            tbMotor2.Text = CurrRegs.motor2.ToString();
+            tbMotor3.Text = CurrRegs.motor3.ToString();
+            tbMotor4.Text = CurrRegs.motor4.ToString();
+
+            float diff_motor1 = CurrRegs.motor1 - min_val;
+            float diff_motor2 = CurrRegs.motor2 - min_val;
+            float diff_motor3 = CurrRegs.motor3 - min_val;
+            float diff_motor4 = CurrRegs.motor4 - min_val;
+
+            if ((diff_motor1 > 0) && (diff_motor2 > 0) &&
+                (diff_motor3 > 0) && (diff_motor4 > 0))
+            {
+                pbMotor1.Value = (int)(100.0 * (diff_motor1) / (max_val - min_val));
+                pbMotor2.Value = (int)(100.0 * (diff_motor2) / (max_val - min_val));
+                pbMotor3.Value = (int)(100.0 * (diff_motor3) / (max_val - min_val));
+                pbMotor4.Value = (int)(100.0 * (diff_motor4) / (max_val - min_val));
+            }
+
+            tbBattVolt.Text = CurrRegs.v_batt.ToString("0.0#");
+        }
 
         /************************************************************
          * Tab              : Sensors Tab
@@ -273,7 +383,7 @@ namespace GUI
             if (cbzAcce.Checked) //Z
             {
                 chartAcce.Series[2].Enabled = true;
-                cbzAcce.Text = "Z = " + CurrRegs.accel_y.ToString();
+                cbzAcce.Text = "Z = " + CurrRegs.accel_z.ToString();
 
                 if (cbzAcce.Text.Length > 9)
                     cbzAcce.Text = cbzAcce.Text.Substring(0, 9);
@@ -389,63 +499,31 @@ namespace GUI
         * **********************************************************/
         private void updateOrientationGraphs()
         {
-
-
             double roll_perc_ang = (CurrRegs.roll * 180.0 / Math.PI);
             double pitch_perc_ang = (CurrRegs.pitch * 180.0 / Math.PI);
             double yaw_perc_ang = (CurrRegs.yaw * 180.0 / Math.PI);
 
-            //----------------------- Pitch - Actual ---------------------//
-            chartPitch.Series[0].Points.AddXY(xIndex, pitch_perc_ang);
-            chartPitch.Series[1].Points.AddXY(xIndex, 0);
-            //if (cbActualPitch.Checked) //Actual Value
-            //{
-            //    chartPitch.Series[0].Enabled = true;
-            //    cbActualPitch.Text = "Actual = " + pitch_ang.ToString();
-
-            //    if (cbActualPitch.Text.Length > 15)
-            //        cbActualPitch.Text = cbActualPitch.Text.Substring(0, 15);
-            //}
-            //else
-            //{
-            //    chartPitch.Series[0].Enabled = false;
-            //    cbActualPitch.Text = "Actual";
-            //}
-
-            //----------------------- Yaw - Actual ---------------------//
-            chartYaw.Series[0].Points.AddXY(xIndex, yaw_perc_ang);
-            chartYaw.Series[1].Points.AddXY(xIndex, 0); //for now
-            //if (cbActualYaw.Checked) //Actual Value
-            //{
-            //    chartYaw.Series[0].Enabled = true;
-            //    cbActualYaw.Text = "Actual = " + yaw_ang.ToString();
-
-            //    if (cbActualYaw.Text.Length > 15)
-            //        cbActualYaw.Text = cbActualYaw.Text.Substring(0, 15);
-            //}
-            //else
-            //{
-            //    chartYaw.Series[0].Enabled = false;
-            //    cbActualYaw.Text = "Actual";
-            //}
+            double roll_des_ang = (CurrRegs.desired_roll * 180.0 / Math.PI);
+            double pitch_des_ang = (CurrRegs.desired_pitch * 180.0 / Math.PI);
+            double yaw_des_ang = (CurrRegs.desired_yaw * 180.0 / Math.PI);
 
             //----------------------- Roll - Actual ---------------------//
             chartRoll.Series[0].Points.AddXY(xIndex, roll_perc_ang);
-            chartRoll.Series[1].Points.AddXY(xIndex, 0); //for now
+            chartRoll.Series[1].Points.AddXY(xIndex, roll_des_ang);
+            tbRollPerc.Text = roll_perc_ang.ToString("0.#");
+            tbRollDes.Text = roll_des_ang.ToString("0.#");
 
-            //if (cbActualRoll.Checked) //Actual Value
-            //{
-            //    chartRoll.Series[0].Enabled = true;
-            //    cbActualRoll.Text = "Actual = " + roll_ang.ToString();
+            //----------------------- Pitch - Actual ---------------------//
+            chartPitch.Series[0].Points.AddXY(xIndex, pitch_perc_ang);
+            chartPitch.Series[1].Points.AddXY(xIndex, pitch_des_ang);
+            tbPitchPerc.Text = pitch_perc_ang.ToString("0.#");
+            tbPitchDes.Text = pitch_des_ang.ToString("0.#");
 
-            //    if (cbActualRoll.Text.Length > 15)
-            //        cbActualRoll.Text = cbActualRoll.Text.Substring(0, 15);
-            //}
-            //else
-            //{
-            //    chartRoll.Series[0].Enabled = false;
-            //    cbActualRoll.Text = "Actual";
-            //}
+            //----------------------- Yaw - Actual ---------------------//
+            chartYaw.Series[0].Points.AddXY(xIndex, yaw_perc_ang);
+            chartYaw.Series[1].Points.AddXY(xIndex, yaw_des_ang);
+            tbYawPerc.Text = yaw_perc_ang.ToString("0.#");
+            tbYawDes.Text = yaw_des_ang.ToString("0.#");
         }
 
         /************************************************************
@@ -516,13 +594,16 @@ namespace GUI
                     updateSensorGraphs();
                     updateOrientationGraphs();
 
+                    //update progress bars
+                    updateMotors();
+
                     //Quad copter model updating
-                    quadcopterModel1.UpdateModel(CurrRegs.roll, CurrRegs.pitch, CurrRegs.yaw);
+                    quadcopterModel1.UpdateModel(-1 * CurrRegs.roll, -1 * CurrRegs.pitch, -1 * CurrRegs.yaw);
 
                 }
                 else
                 {
-                    MessageBox.Show("There is Error in updateSerialPort()\n" + "Number of data recieved is 0\n");
+                    //MessageBox.Show("There is Error in updateSerialPort()\n" + "Number of data recieved is 0\n");
                 }
 
             }
@@ -533,7 +614,8 @@ namespace GUI
         {
             List<byte> buffer2 = new List<byte> 
                                {0x10, 0x11, 0x12, 0x13,
-                                0x14, 0x15, 0x16, 0x17, 
+                               0x14, 0x15, 0x16, 0x17,
+                                0x18, 0x19, 0x1A,
 
                                 //Gyro
                                 0x20, 0x21, 0x22, 0x23,
@@ -546,9 +628,182 @@ namespace GUI
 
                                 //Roll yaw pitch
                                 0x40, 0x41, 0x42,
+                                //scaled yaw
+                                0x43, 
+                                //Desired pitch, yaw, roll, throttle
+                                0x44, 0x45, 0x46, 0x47,
+
+                                //motor values
+                                0x50, 0x51, 0x52, 0x53,
+
+                                //voltage battery
+                                0x60,
+
+                                //Filter RollPitchP, RollPitchI, YawP, YawI
+                                0x80, 0x81, 0x82, 0x83,
+
+                                //MotorPID
+                                //Roll PID, Pitch PID, Yaw PID
+                                0x90, 0x91, 0x92,
+                                0x93, 0x94, 0x95,
+                                0x96, 0x97, 0x98
                             };
+
             buffer2.Insert(0, 0x02); //Read reg
             buffer2.Insert(buffer2.Count, 0xFF); //add End of Transmission byte
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+
+        private void send_WritePID()
+        {
+            //filter
+            float rollpitch_kp = 0;
+            float rollpitch_ki = 0;
+            float yaw_kp = 0;
+            float yaw_ki = 0;
+
+            float.TryParse(tbFilterRollPitchP.Text, out rollpitch_kp);
+            float.TryParse(tbFilterRollPitchI.Text, out rollpitch_ki);
+            float.TryParse(tbFilterYawP.Text, out yaw_kp);
+            float.TryParse(tbFilterYawI.Text, out yaw_ki);
+
+            byte[] rp_kp = StructureToByteArray(rollpitch_kp);
+            byte[] rp_ki = StructureToByteArray(rollpitch_ki);
+            byte[] y_kp = StructureToByteArray(yaw_kp);
+            byte[] y_ki = StructureToByteArray(yaw_ki);
+
+
+            float mRollP = 0;
+            float mRollI = 0;
+            float mRollD = 0;
+            float.TryParse(tbMotorRollP.Text, out mRollP);
+            float.TryParse(tbMotorRollI.Text, out mRollI);
+            float.TryParse(tbMotorRollD.Text, out mRollD);
+            byte[] mRollP_b = StructureToByteArray(mRollP);
+            byte[] mRollI_b = StructureToByteArray(mRollI);
+            byte[] mRollD_b = StructureToByteArray(mRollD);
+
+            float mPitchP = 0;
+            float mPitchI = 0;
+            float mPitchD = 0;
+            float.TryParse(tbMotorPitchP.Text, out mPitchP);
+            float.TryParse(tbMotorPitchI.Text, out mPitchI);
+            float.TryParse(tbMotorPitchD.Text, out mPitchD);
+            byte[] mPitchP_b = StructureToByteArray(mPitchP);
+            byte[] mPitchI_b = StructureToByteArray(mPitchI);
+            byte[] mPitchD_b = StructureToByteArray(mPitchD);
+
+
+            float mYawP = 0;
+            float mYawI = 0;
+            float mYawD = 0;
+            float.TryParse(tbMotorYawP.Text, out mYawP);
+            float.TryParse(tbMotorYawI.Text, out mYawI);
+            float.TryParse(tbMotorYawD.Text, out mYawD);
+            byte[] mYawP_b = StructureToByteArray(mYawP);
+            byte[] mYawI_b = StructureToByteArray(mYawI);
+            byte[] mYawD_b = StructureToByteArray(mYawD);
+
+
+
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Filter
+                                0x80, rp_kp[0], rp_kp[1], rp_kp[2], rp_kp[3], 
+                                0x81, rp_ki[0], rp_ki[1], rp_ki[2], rp_ki[3], 
+                                0x82, y_kp[0], y_kp[1], y_kp[2], y_kp[3], 
+                                0x83, y_ki[0], y_ki[1], y_ki[2], y_ki[3],
+
+                                //PID
+                                0x90, mRollP_b[0], mRollP_b[1], mRollP_b[2], mRollP_b[3],
+                                0x91, mRollI_b[0], mRollI_b[1], mRollI_b[2], mRollI_b[3], 
+                                0x92, mRollD_b[0], mRollD_b[1], mRollD_b[2], mRollD_b[3], 
+
+                                0x93, mPitchP_b[0], mPitchP_b[1], mPitchP_b[2], mPitchP_b[3], 
+                                0x94, mPitchI_b[0], mPitchI_b[1], mPitchI_b[2], mPitchI_b[3], 
+                                0x95, mPitchD_b[0], mPitchD_b[1], mPitchD_b[2], mPitchD_b[3], 
+
+                                0x96, mYawP_b[0], mYawP_b[1], mYawP_b[2], mYawP_b[3], 
+                                0x97, mYawI_b[0], mYawI_b[1], mYawI_b[2], mYawI_b[3], 
+                                0x98, mYawD_b[0], mYawD_b[1], mYawD_b[2], mYawD_b[3], 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+
+
+        }
+
+        private void send_ResetPID()
+        {
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Reset PID
+                                0x99, 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+
+        private void send_ResetFilter()
+        {
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Reset PID
+                                0x84, 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+
+        private void send_IdleMotors()
+        {
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Reset PID
+                                0x54, 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+
+        private void send_SoftRestart()
+        {
+
+        }
+
+        private void send_ShuttoffMotors()
+        {
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Reset PID
+                                0x55, 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
             buffer2.Insert(0, (byte)(buffer2.Count() + 1));
             byte[] buffer = buffer2.ToArray();
 
