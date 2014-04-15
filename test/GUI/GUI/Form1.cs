@@ -19,6 +19,7 @@ namespace GUI
     public partial class Form1 : Form
     {
         double xIndex = 0.00;
+        int deleteME = 0;
 
         //Connection Tap variables
         Connection method = new Connection();
@@ -109,8 +110,48 @@ namespace GUI
         public Form1()
         {
             InitializeComponent();
-        }
 
+            this.KeyPreview = true;
+            this.KeyUp += new KeyEventHandler(GUI_KeyUp);
+        }
+        void GUI_KeyUp(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+
+            switch (e.KeyCode)
+            {
+                case Keys.Space://Emergency
+                    btShutoffMotors_Click(sender, e);
+                    break;
+                case Keys.E://Forward
+                    btGUIForward_Click(sender, e);
+                    break;
+                case Keys.D://Backward
+                    btGUIBackward_Click(sender, e);
+                    break;
+                case Keys.F://Right
+                    btGUIRight_Click(sender, e);
+                    break;
+                 case Keys.S://Left
+                    btGUILeft_Click(sender, e);
+                    break;
+                 case Keys.R://Right Yaw
+                    btGUIRotateRight_Click(sender, e);
+                    break;
+                 case Keys.W://Left Yaw
+                    btGUIRotateLeft_Click(sender, e);
+                    break;
+                 case Keys.Q://Go up
+                    btGUIIncThrottle_Click(sender, e);
+                    break;
+                 case Keys.A://Go Down
+                    btGUIDecThrottle_Click(sender, e);
+                    break;
+                default:
+                    MessageBox.Show(e.KeyCode.ToString());
+                    break;
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             btRefreshSP_Click(sender, e);
@@ -267,7 +308,6 @@ namespace GUI
             send_OffsetRoll((float)(angle * Math.PI / 180.0));
         }
 
-
         private void btWritePID_Click(object sender, EventArgs e)
         {
             send_WritePID();
@@ -348,7 +388,7 @@ namespace GUI
                 pbMotor4.Value = (int)(100.0 * (diff_motor4) / (max_val - min_val));
             }
 
-            tbBattVolt.Text = CurrRegs.v_batt.ToString("0.0#");
+            tbBattVolt.Text = CurrRegs.v_batt.ToString("00.0#");
 
             tbGUIRoll.Text = (CurrRegs.gui_roll * 180.0/Math.PI).ToString("0.#");
             tbGUIPitch.Text = (CurrRegs.gui_pitch * 180.0 / Math.PI).ToString("0.#");
