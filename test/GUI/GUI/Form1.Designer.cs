@@ -107,8 +107,9 @@
             this.btWritePID = new System.Windows.Forms.Button();
             this.btReadPID = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tbBattVolt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pbMotor1 = new System.Windows.Forms.ProgressBar();
             this.tbMotor1 = new System.Windows.Forms.TextBox();
@@ -122,15 +123,17 @@
             this.tbMotor4 = new System.Windows.Forms.TextBox();
             this.pbMotor2 = new System.Windows.Forms.ProgressBar();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.trckbarThrottle = new System.Windows.Forms.TrackBar();
+            this.btGUIForward = new System.Windows.Forms.Button();
             this.btShutoffMotors = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.btGUILeft = new System.Windows.Forms.Button();
+            this.btGUIRotateLeft = new System.Windows.Forms.Button();
+            this.btGUIBackward = new System.Windows.Forms.Button();
+            this.btGUIDecThrottle = new System.Windows.Forms.Button();
+            this.btGUIRight = new System.Windows.Forms.Button();
+            this.btGUIRotateRight = new System.Windows.Forms.Button();
+            this.btGUIIncThrottle = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.rtbDebug = new System.Windows.Forms.RichTextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -161,9 +164,12 @@
             this.chartPitch = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.chartRoll = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label21 = new System.Windows.Forms.Label();
-            this.tbBattVolt = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.tbGUIRoll = new System.Windows.Forms.TextBox();
+            this.tbGUIPitch = new System.Windows.Forms.TextBox();
+            this.tbGUIYaw = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.quadcopterModel1 = new GUI.QuadcopterModel();
             this.tabPage4.SuspendLayout();
@@ -177,9 +183,9 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trckbarThrottle)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.gbSP.SuspendLayout();
@@ -795,15 +801,6 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Remote Control";
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(11, 34);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 98);
-            this.trackBar1.TabIndex = 18;
-            this.trackBar1.Value = 2;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label22);
@@ -828,6 +825,23 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Motors Status";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(423, 21);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 13);
+            this.label22.TabIndex = 19;
+            this.label22.Text = "Batt. Volt";
+            // 
+            // tbBattVolt
+            // 
+            this.tbBattVolt.Enabled = false;
+            this.tbBattVolt.Location = new System.Drawing.Point(418, 38);
+            this.tbBattVolt.Name = "tbBattVolt";
+            this.tbBattVolt.Size = new System.Drawing.Size(62, 20);
+            this.tbBattVolt.TabIndex = 18;
             // 
             // label6
             // 
@@ -939,17 +953,23 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label25);
+            this.groupBox6.Controls.Add(this.label24);
+            this.groupBox6.Controls.Add(this.label23);
+            this.groupBox6.Controls.Add(this.tbGUIYaw);
+            this.groupBox6.Controls.Add(this.tbGUIPitch);
+            this.groupBox6.Controls.Add(this.tbGUIRoll);
             this.groupBox6.Controls.Add(this.label21);
-            this.groupBox6.Controls.Add(this.trackBar1);
-            this.groupBox6.Controls.Add(this.button13);
+            this.groupBox6.Controls.Add(this.trckbarThrottle);
+            this.groupBox6.Controls.Add(this.btGUIForward);
             this.groupBox6.Controls.Add(this.btShutoffMotors);
-            this.groupBox6.Controls.Add(this.button15);
-            this.groupBox6.Controls.Add(this.button11);
-            this.groupBox6.Controls.Add(this.button14);
-            this.groupBox6.Controls.Add(this.button18);
-            this.groupBox6.Controls.Add(this.button16);
-            this.groupBox6.Controls.Add(this.button12);
-            this.groupBox6.Controls.Add(this.button17);
+            this.groupBox6.Controls.Add(this.btGUILeft);
+            this.groupBox6.Controls.Add(this.btGUIRotateLeft);
+            this.groupBox6.Controls.Add(this.btGUIBackward);
+            this.groupBox6.Controls.Add(this.btGUIDecThrottle);
+            this.groupBox6.Controls.Add(this.btGUIRight);
+            this.groupBox6.Controls.Add(this.btGUIRotateRight);
+            this.groupBox6.Controls.Add(this.btGUIIncThrottle);
             this.groupBox6.Location = new System.Drawing.Point(15, 18);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(485, 190);
@@ -957,105 +977,134 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Icons";
             // 
-            // button13
+            // label21
             // 
-            this.button13.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button13.Location = new System.Drawing.Point(200, 41);
-            this.button13.Margin = new System.Windows.Forms.Padding(2);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(65, 37);
-            this.button13.TabIndex = 4;
-            this.button13.Text = "Forward";
-            this.button13.UseVisualStyleBackColor = false;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(11, 18);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(43, 13);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "Throttle";
+            // 
+            // trckbarThrottle
+            // 
+            this.trckbarThrottle.Location = new System.Drawing.Point(11, 34);
+            this.trckbarThrottle.Maximum = 100;
+            this.trckbarThrottle.Name = "trckbarThrottle";
+            this.trckbarThrottle.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trckbarThrottle.Size = new System.Drawing.Size(45, 98);
+            this.trckbarThrottle.TabIndex = 18;
+            this.trckbarThrottle.TickFrequency = 4;
+            this.trckbarThrottle.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trckbarThrottle.Value = 2;
+            // 
+            // btGUIForward
+            // 
+            this.btGUIForward.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btGUIForward.Location = new System.Drawing.Point(200, 41);
+            this.btGUIForward.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIForward.Name = "btGUIForward";
+            this.btGUIForward.Size = new System.Drawing.Size(65, 37);
+            this.btGUIForward.TabIndex = 4;
+            this.btGUIForward.Text = "Forward";
+            this.btGUIForward.UseVisualStyleBackColor = false;
+            this.btGUIForward.Click += new System.EventHandler(this.btGUIForward_Click);
             // 
             // btShutoffMotors
             // 
             this.btShutoffMotors.BackColor = System.Drawing.Color.Red;
-            this.btShutoffMotors.Location = new System.Drawing.Point(396, 61);
+            this.btShutoffMotors.Location = new System.Drawing.Point(408, 142);
             this.btShutoffMotors.Margin = new System.Windows.Forms.Padding(2);
             this.btShutoffMotors.Name = "btShutoffMotors";
-            this.btShutoffMotors.Size = new System.Drawing.Size(89, 80);
+            this.btShutoffMotors.Size = new System.Drawing.Size(72, 43);
             this.btShutoffMotors.TabIndex = 10;
             this.btShutoffMotors.Text = "Shutoff Motors";
             this.btShutoffMotors.UseVisualStyleBackColor = false;
             this.btShutoffMotors.Click += new System.EventHandler(this.btShutoffMotors_Click);
             // 
-            // button15
+            // btGUILeft
             // 
-            this.button15.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button15.Location = new System.Drawing.Point(141, 83);
-            this.button15.Margin = new System.Windows.Forms.Padding(2);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(58, 37);
-            this.button15.TabIndex = 6;
-            this.button15.Text = "Left";
-            this.button15.UseVisualStyleBackColor = false;
+            this.btGUILeft.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btGUILeft.Location = new System.Drawing.Point(141, 83);
+            this.btGUILeft.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUILeft.Name = "btGUILeft";
+            this.btGUILeft.Size = new System.Drawing.Size(58, 37);
+            this.btGUILeft.TabIndex = 6;
+            this.btGUILeft.Text = "Left";
+            this.btGUILeft.UseVisualStyleBackColor = false;
+            this.btGUILeft.Click += new System.EventHandler(this.btGUILeft_Click);
             // 
-            // button11
+            // btGUIRotateLeft
             // 
-            this.button11.BackColor = System.Drawing.Color.Orange;
-            this.button11.Location = new System.Drawing.Point(125, 18);
-            this.button11.Margin = new System.Windows.Forms.Padding(2);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(74, 22);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "Rotate L.";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btGUIRotateLeft.BackColor = System.Drawing.Color.Orange;
+            this.btGUIRotateLeft.Location = new System.Drawing.Point(125, 18);
+            this.btGUIRotateLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIRotateLeft.Name = "btGUIRotateLeft";
+            this.btGUIRotateLeft.Size = new System.Drawing.Size(74, 22);
+            this.btGUIRotateLeft.TabIndex = 2;
+            this.btGUIRotateLeft.Text = "Rotate L.";
+            this.btGUIRotateLeft.UseVisualStyleBackColor = false;
+            this.btGUIRotateLeft.Click += new System.EventHandler(this.btGUIRotateLeft_Click);
             // 
-            // button14
+            // btGUIBackward
             // 
-            this.button14.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button14.Location = new System.Drawing.Point(200, 125);
-            this.button14.Margin = new System.Windows.Forms.Padding(2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(65, 37);
-            this.button14.TabIndex = 5;
-            this.button14.Text = "Backward";
-            this.button14.UseVisualStyleBackColor = false;
+            this.btGUIBackward.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btGUIBackward.Location = new System.Drawing.Point(200, 125);
+            this.btGUIBackward.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIBackward.Name = "btGUIBackward";
+            this.btGUIBackward.Size = new System.Drawing.Size(65, 37);
+            this.btGUIBackward.TabIndex = 5;
+            this.btGUIBackward.Text = "Backward";
+            this.btGUIBackward.UseVisualStyleBackColor = false;
+            this.btGUIBackward.Click += new System.EventHandler(this.btGUIBackward_Click);
             // 
-            // button18
+            // btGUIDecThrottle
             // 
-            this.button18.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button18.Location = new System.Drawing.Point(11, 164);
-            this.button18.Margin = new System.Windows.Forms.Padding(2);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(41, 21);
-            this.button18.TabIndex = 9;
-            this.button18.Text = "Dec";
-            this.button18.UseVisualStyleBackColor = false;
+            this.btGUIDecThrottle.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btGUIDecThrottle.Location = new System.Drawing.Point(11, 164);
+            this.btGUIDecThrottle.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIDecThrottle.Name = "btGUIDecThrottle";
+            this.btGUIDecThrottle.Size = new System.Drawing.Size(41, 21);
+            this.btGUIDecThrottle.TabIndex = 9;
+            this.btGUIDecThrottle.Text = "Dec";
+            this.btGUIDecThrottle.UseVisualStyleBackColor = false;
+            this.btGUIDecThrottle.Click += new System.EventHandler(this.btGUIDecThrottle_Click);
             // 
-            // button16
+            // btGUIRight
             // 
-            this.button16.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.button16.Location = new System.Drawing.Point(263, 83);
-            this.button16.Margin = new System.Windows.Forms.Padding(2);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(58, 37);
-            this.button16.TabIndex = 7;
-            this.button16.Text = "Right";
-            this.button16.UseVisualStyleBackColor = false;
+            this.btGUIRight.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btGUIRight.Location = new System.Drawing.Point(263, 83);
+            this.btGUIRight.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIRight.Name = "btGUIRight";
+            this.btGUIRight.Size = new System.Drawing.Size(58, 37);
+            this.btGUIRight.TabIndex = 7;
+            this.btGUIRight.Text = "Right";
+            this.btGUIRight.UseVisualStyleBackColor = false;
+            this.btGUIRight.Click += new System.EventHandler(this.btGUIRight_Click);
             // 
-            // button12
+            // btGUIRotateRight
             // 
-            this.button12.BackColor = System.Drawing.Color.Orange;
-            this.button12.Location = new System.Drawing.Point(263, 18);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(74, 22);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "Rotate R.";
-            this.button12.UseVisualStyleBackColor = false;
+            this.btGUIRotateRight.BackColor = System.Drawing.Color.Orange;
+            this.btGUIRotateRight.Location = new System.Drawing.Point(263, 18);
+            this.btGUIRotateRight.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIRotateRight.Name = "btGUIRotateRight";
+            this.btGUIRotateRight.Size = new System.Drawing.Size(74, 22);
+            this.btGUIRotateRight.TabIndex = 3;
+            this.btGUIRotateRight.Text = "Rotate R.";
+            this.btGUIRotateRight.UseVisualStyleBackColor = false;
+            this.btGUIRotateRight.Click += new System.EventHandler(this.btGUIRotateRight_Click);
             // 
-            // button17
+            // btGUIIncThrottle
             // 
-            this.button17.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button17.Location = new System.Drawing.Point(11, 137);
-            this.button17.Margin = new System.Windows.Forms.Padding(2);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(41, 22);
-            this.button17.TabIndex = 8;
-            this.button17.Text = "Inc";
-            this.button17.UseVisualStyleBackColor = false;
+            this.btGUIIncThrottle.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btGUIIncThrottle.Location = new System.Drawing.Point(11, 137);
+            this.btGUIIncThrottle.Margin = new System.Windows.Forms.Padding(2);
+            this.btGUIIncThrottle.Name = "btGUIIncThrottle";
+            this.btGUIIncThrottle.Size = new System.Drawing.Size(41, 22);
+            this.btGUIIncThrottle.TabIndex = 8;
+            this.btGUIIncThrottle.Text = "Inc";
+            this.btGUIIncThrottle.UseVisualStyleBackColor = false;
+            this.btGUIIncThrottle.Click += new System.EventHandler(this.btGUIIncThrottle_Click);
             // 
             // tabPage1
             // 
@@ -1456,31 +1505,59 @@
             title6.Text = "Roll";
             this.chartRoll.Titles.Add(title6);
             // 
-            // label21
+            // tbGUIRoll
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(11, 18);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(43, 13);
-            this.label21.TabIndex = 19;
-            this.label21.Text = "Throttle";
+            this.tbGUIRoll.Enabled = false;
+            this.tbGUIRoll.Location = new System.Drawing.Point(414, 32);
+            this.tbGUIRoll.Name = "tbGUIRoll";
+            this.tbGUIRoll.Size = new System.Drawing.Size(65, 20);
+            this.tbGUIRoll.TabIndex = 20;
+            this.tbGUIRoll.Text = "0.0";
             // 
-            // tbBattVolt
+            // tbGUIPitch
             // 
-            this.tbBattVolt.Enabled = false;
-            this.tbBattVolt.Location = new System.Drawing.Point(418, 38);
-            this.tbBattVolt.Name = "tbBattVolt";
-            this.tbBattVolt.Size = new System.Drawing.Size(62, 20);
-            this.tbBattVolt.TabIndex = 18;
+            this.tbGUIPitch.Enabled = false;
+            this.tbGUIPitch.Location = new System.Drawing.Point(414, 73);
+            this.tbGUIPitch.Name = "tbGUIPitch";
+            this.tbGUIPitch.Size = new System.Drawing.Size(65, 20);
+            this.tbGUIPitch.TabIndex = 21;
+            this.tbGUIPitch.Text = "0.0";
             // 
-            // label22
+            // tbGUIYaw
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(423, 21);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(50, 13);
-            this.label22.TabIndex = 19;
-            this.label22.Text = "Batt. Volt";
+            this.tbGUIYaw.Enabled = false;
+            this.tbGUIYaw.Location = new System.Drawing.Point(414, 112);
+            this.tbGUIYaw.Name = "tbGUIYaw";
+            this.tbGUIYaw.Size = new System.Drawing.Size(65, 20);
+            this.tbGUIYaw.TabIndex = 22;
+            this.tbGUIYaw.Text = "0.0";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(411, 16);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(47, 13);
+            this.label23.TabIndex = 23;
+            this.label23.Text = "GUI Roll";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(411, 55);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 13);
+            this.label24.TabIndex = 24;
+            this.label24.Text = "GUI Pitch";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(411, 96);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(50, 13);
+            this.label25.TabIndex = 25;
+            this.label25.Text = "GUI Yaw";
             // 
             // elementHost1
             // 
@@ -1519,11 +1596,11 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trckbarThrottle)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -1561,14 +1638,14 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button btShutoffMotors;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btGUIRotateLeft;
+        private System.Windows.Forms.Button btGUIDecThrottle;
+        private System.Windows.Forms.Button btGUIRotateRight;
+        private System.Windows.Forms.Button btGUIIncThrottle;
+        private System.Windows.Forms.Button btGUIForward;
+        private System.Windows.Forms.Button btGUIRight;
+        private System.Windows.Forms.Button btGUIBackward;
+        private System.Windows.Forms.Button btGUILeft;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RichTextBox rtbDebug;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -1647,11 +1724,17 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btIdleMotor;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar trckbarThrottle;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox tbBattVolt;
         private QuadcopterModel quadcopterModel1;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox tbGUIYaw;
+        private System.Windows.Forms.TextBox tbGUIPitch;
+        private System.Windows.Forms.TextBox tbGUIRoll;
     }
 }
 

@@ -70,6 +70,11 @@ namespace GUI
             public float desired_roll;
             public float desired_throttle;
 
+            public float gui_roll;
+            public float gui_pitch;
+            public float gui_yaw;
+            public float gui_throttle;
+
             public float motor1;
             public float motor2;
             public float motor3;
@@ -201,6 +206,68 @@ namespace GUI
          * Purpose          : 
          * Last Modification:
          * **********************************************************/
+        private void btGUIIncThrottle_Click(object sender, EventArgs e)
+        {
+            float incr = 2.0F;
+
+            if (CurrRegs.gui_throttle < 100.0)
+            {
+                send_OffsetThrottle(incr);
+            }
+        }
+
+        private void btGUIDecThrottle_Click(object sender, EventArgs e)
+        {
+            float dec = -2.0F;
+            if (CurrRegs.gui_throttle > 0.0)
+            {
+                send_OffsetThrottle(dec);
+            }
+        }
+
+        private void btGUIRotateLeft_Click(object sender, EventArgs e)
+        {
+            float angle = -5.0F;
+
+            send_OffsetYaw((float)(angle * Math.PI / 180.0));
+        }
+
+        private void btGUIRotateRight_Click(object sender, EventArgs e)
+        {
+            float angle = 5.0F;
+
+            send_OffsetYaw((float)(angle * Math.PI / 180.0));
+        }
+
+        private void btGUIForward_Click(object sender, EventArgs e)
+        {
+            float angle = -5.0F;
+
+            send_OffsetPitch((float)(angle * Math.PI / 180.0));
+        }
+
+        private void btGUIBackward_Click(object sender, EventArgs e)
+        {
+            float angle = 5.0F;
+
+            send_OffsetPitch((float)(angle * Math.PI / 180.0));
+        }
+
+        private void btGUILeft_Click(object sender, EventArgs e)
+        {
+            float angle = -5.0F;
+
+            send_OffsetRoll((float)(angle * Math.PI / 180.0));
+        }
+
+        private void btGUIRight_Click(object sender, EventArgs e)
+        {
+            float angle = 5.0F;
+
+            send_OffsetRoll((float)(angle * Math.PI / 180.0));
+        }
+
+
         private void btWritePID_Click(object sender, EventArgs e)
         {
             send_WritePID();
@@ -257,7 +324,7 @@ namespace GUI
             send_ShuttoffMotors();
         }
 
-        private void updateMotors()
+        private void updateRemoteMotors()
         {
             float max_val = 3250.0F;
             float min_val = 3000.0F;
@@ -282,6 +349,16 @@ namespace GUI
             }
 
             tbBattVolt.Text = CurrRegs.v_batt.ToString("0.0#");
+
+            tbGUIRoll.Text = (CurrRegs.gui_roll * 180.0/Math.PI).ToString("0.#");
+            tbGUIPitch.Text = (CurrRegs.gui_pitch * 180.0 / Math.PI).ToString("0.#");
+            tbGUIYaw.Text = (CurrRegs.gui_yaw * 180.0 / Math.PI).ToString("0.#");
+
+            if ((CurrRegs.gui_throttle > 0.0) && (CurrRegs.gui_throttle < 100.0))
+            {
+                trckbarThrottle.Value = (int)CurrRegs.gui_throttle;
+            }
+            
         }
 
         /************************************************************
@@ -499,9 +576,9 @@ namespace GUI
         * **********************************************************/
         private void updateOrientationGraphs()
         {
-            double roll_perc_ang = (CurrRegs.roll * 180.0 / Math.PI);
-            double pitch_perc_ang = (CurrRegs.pitch * 180.0 / Math.PI);
-            double yaw_perc_ang = (CurrRegs.yaw * 180.0 / Math.PI);
+            double roll_perc_ang = -1*(CurrRegs.roll * 180.0 / Math.PI);
+            double pitch_perc_ang = -1 * (CurrRegs.pitch * 180.0 / Math.PI);
+            double yaw_perc_ang = -1 * (CurrRegs.yaw * 180.0 / Math.PI);
 
             double roll_des_ang = (CurrRegs.desired_roll * 180.0 / Math.PI);
             double pitch_des_ang = (CurrRegs.desired_pitch * 180.0 / Math.PI);
@@ -595,7 +672,7 @@ namespace GUI
                     updateOrientationGraphs();
 
                     //update progress bars
-                    updateMotors();
+                    updateRemoteMotors();
 
                     //Quad copter model updating
                     quadcopterModel1.UpdateModel(-1 * CurrRegs.roll, -1 * CurrRegs.pitch, -1 * CurrRegs.yaw);
@@ -632,6 +709,8 @@ namespace GUI
                                 0x43, 
                                 //Desired pitch, yaw, roll, throttle
                                 0x44, 0x45, 0x46, 0x47,
+                                //GUI deserired roll_pitch yaw
+                                0x48, 0x49, 0x4A, 0x4B,
 
                                 //motor values
                                 0x50, 0x51, 0x52, 0x53,
@@ -811,5 +890,70 @@ namespace GUI
         }
 
 
+
+        private void send_OffsetRoll(float offset)
+        {
+            byte[] value_b = StructureToByteArray(offset);
+
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                0x4c, value_b[0], value_b[1], value_b[2], value_b[3], 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+        private void send_OffsetPitch(float offset)
+        {
+            byte[] value_b = StructureToByteArray(offset);
+
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                0x4D, value_b[0], value_b[1], value_b[2], value_b[3], 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+        private void send_OffsetYaw(float offset)
+        {
+            byte[] value_b = StructureToByteArray(offset);
+
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                0x4E, value_b[0], value_b[1], value_b[2], value_b[3], 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+        private void send_OffsetThrottle(float offset)
+        {
+            byte[] value_b = StructureToByteArray(offset);
+
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                0x4F, value_b[0], value_b[1], value_b[2], value_b[3], 
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
     }
 }
