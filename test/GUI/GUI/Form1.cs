@@ -148,7 +148,6 @@ namespace GUI
                     btGUIDecThrottle_Click(sender, e);
                     break;
                 default:
-                    MessageBox.Show(e.KeyCode.ToString());
                     break;
             }
         }
