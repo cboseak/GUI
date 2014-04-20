@@ -65,7 +65,6 @@ namespace GUI
             public float pitch;
             public float yaw;
             public float roll;
-            public float scaled_yaw;
             public float desired_pitch;
             public float desired_yaw;
             public float desired_roll;
@@ -744,8 +743,7 @@ namespace GUI
 
                                 //Roll yaw pitch
                                 0x40, 0x41, 0x42,
-                                //scaled yaw
-                                0x43, 
+
                                 //Desired pitch, yaw, roll, throttle
                                 0x44, 0x45, 0x46, 0x47,
                                 //GUI deserired roll_pitch yaw
