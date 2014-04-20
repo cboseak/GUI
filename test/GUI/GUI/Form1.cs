@@ -209,7 +209,7 @@ namespace GUI
 
             if (0 == serialPorts.Length)
             {
-                MessageBox.Show("There is NO Serial Ports Available!");
+                //MessageBox.Show("There are no Serial Ports Available!");
             }
             else
             {
@@ -619,9 +619,9 @@ namespace GUI
             double pitch_perc_ang = -1 * (CurrRegs.pitch * 180.0 / Math.PI);
             double yaw_perc_ang = -1 * (CurrRegs.yaw * 180.0 / Math.PI);
 
-            double roll_des_ang = (CurrRegs.desired_roll * 180.0 / Math.PI);
-            double pitch_des_ang = (CurrRegs.desired_pitch * 180.0 / Math.PI);
-            double yaw_des_ang = (CurrRegs.desired_yaw * 180.0 / Math.PI);
+            double roll_des_ang = ((CurrRegs.desired_roll + CurrRegs.gui_roll) * 180.0 / Math.PI);
+            double pitch_des_ang = ((CurrRegs.desired_pitch + CurrRegs.gui_pitch) * 180.0 / Math.PI);
+            double yaw_des_ang = ((CurrRegs.desired_yaw + CurrRegs.gui_yaw) * 180.0 / Math.PI);
 
             //----------------------- Roll - Actual ---------------------//
             chartRoll.Series[0].Points.AddXY(xIndex, roll_perc_ang);
