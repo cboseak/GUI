@@ -101,10 +101,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icon2.ico" />
     <Content Include="myX.ico" />
-    <Content Include="wsu_icon.ico" />
-    <Content Include="X.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
