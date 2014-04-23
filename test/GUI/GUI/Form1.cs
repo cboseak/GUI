@@ -109,17 +109,22 @@ namespace GUI
         public Form1()
         {
             InitializeComponent();
-
-            this.KeyPreview = true;
-            this.KeyUp += new KeyEventHandler(GUI_KeyUp);
         }
-        void GUI_KeyUp(object sender, KeyEventArgs e)
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            btRefreshSP_Click(sender, e);
+        }
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             e.Handled = true;
 
             switch (e.KeyCode)
             {
                 case Keys.Space://Emergency
+                    btShutoffMotors.PerformClick();
                     btShutoffMotors_Click(sender, e);
                     break;
                 case Keys.E://Forward
@@ -131,30 +136,25 @@ namespace GUI
                 case Keys.F://Right
                     btGUIRight_Click(sender, e);
                     break;
-                 case Keys.S://Left
+                case Keys.S://Left
                     btGUILeft_Click(sender, e);
                     break;
-                 case Keys.R://Right Yaw
+                case Keys.R://Right Yaw
                     btGUIRotateRight_Click(sender, e);
                     break;
-                 case Keys.W://Left Yaw
+                case Keys.W://Left Yaw
                     btGUIRotateLeft_Click(sender, e);
                     break;
-                 case Keys.Q://Go up
+                case Keys.Q://Go up
                     btGUIIncThrottle_Click(sender, e);
                     break;
-                 case Keys.A://Go Down
+                case Keys.A://Go Down
                     btGUIDecThrottle_Click(sender, e);
                     break;
                 default:
                     break;
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            btRefreshSP_Click(sender, e);
-        }
-
 
         private void port1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -1055,6 +1055,8 @@ namespace GUI
 
             port1.Write(buffer, 0, buffer.Length);
         }
+
+
 
 
 

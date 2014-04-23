@@ -123,6 +123,7 @@
             this.tbMotor4 = new System.Windows.Forms.TextBox();
             this.pbMotor2 = new System.Windows.Forms.ProgressBar();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btTurnonMotor = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -145,6 +146,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.connectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbSP = new System.Windows.Forms.GroupBox();
+            this.btDisconnectSP = new System.Windows.Forms.Button();
             this.btRefreshSP = new System.Windows.Forms.Button();
             this.btConnectSP = new System.Windows.Forms.Button();
             this.cbSP = new System.Windows.Forms.ComboBox();
@@ -170,10 +172,8 @@
             this.chartPitch = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.chartRoll = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btTurnonMotor = new System.Windows.Forms.Button();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.quadcopterModel1 = new GUI.QuadcopterModel();
-            this.btDisconnectSP = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMagn)).BeginInit();
@@ -980,6 +980,18 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Icons";
             // 
+            // btTurnonMotor
+            // 
+            this.btTurnonMotor.BackColor = System.Drawing.Color.Green;
+            this.btTurnonMotor.Location = new System.Drawing.Point(369, 142);
+            this.btTurnonMotor.Margin = new System.Windows.Forms.Padding(2);
+            this.btTurnonMotor.Name = "btTurnonMotor";
+            this.btTurnonMotor.Size = new System.Drawing.Size(53, 43);
+            this.btTurnonMotor.TabIndex = 26;
+            this.btTurnonMotor.Text = "Turn on Motors";
+            this.btTurnonMotor.UseVisualStyleBackColor = false;
+            this.btTurnonMotor.Click += new System.EventHandler(this.btTurnonMotor_Click);
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1045,6 +1057,7 @@
             // 
             // trckbarThrottle
             // 
+            this.trckbarThrottle.Enabled = false;
             this.trckbarThrottle.Location = new System.Drawing.Point(11, 34);
             this.trckbarThrottle.Maximum = 100;
             this.trckbarThrottle.Name = "trckbarThrottle";
@@ -1221,6 +1234,16 @@
             this.gbSP.TabIndex = 2;
             this.gbSP.TabStop = false;
             this.gbSP.Text = "Serial Port";
+            // 
+            // btDisconnectSP
+            // 
+            this.btDisconnectSP.Location = new System.Drawing.Point(83, 110);
+            this.btDisconnectSP.Name = "btDisconnectSP";
+            this.btDisconnectSP.Size = new System.Drawing.Size(78, 28);
+            this.btDisconnectSP.TabIndex = 5;
+            this.btDisconnectSP.Text = "Disconnect";
+            this.btDisconnectSP.UseVisualStyleBackColor = true;
+            this.btDisconnectSP.Click += new System.EventHandler(this.btDisconnectSP_Click);
             // 
             // btRefreshSP
             // 
@@ -1562,18 +1585,6 @@
             title6.Text = "Roll";
             this.chartRoll.Titles.Add(title6);
             // 
-            // btTurnonMotor
-            // 
-            this.btTurnonMotor.BackColor = System.Drawing.Color.Green;
-            this.btTurnonMotor.Location = new System.Drawing.Point(369, 142);
-            this.btTurnonMotor.Margin = new System.Windows.Forms.Padding(2);
-            this.btTurnonMotor.Name = "btTurnonMotor";
-            this.btTurnonMotor.Size = new System.Drawing.Size(53, 43);
-            this.btTurnonMotor.TabIndex = 26;
-            this.btTurnonMotor.Text = "Turn on Motors";
-            this.btTurnonMotor.UseVisualStyleBackColor = false;
-            this.btTurnonMotor.Click += new System.EventHandler(this.btTurnonMotor_Click);
-            // 
             // elementHost1
             // 
             this.elementHost1.BackColor = System.Drawing.Color.Gainsboro;
@@ -1584,16 +1595,6 @@
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.quadcopterModel1;
             // 
-            // btDisconnectSP
-            // 
-            this.btDisconnectSP.Location = new System.Drawing.Point(83, 110);
-            this.btDisconnectSP.Name = "btDisconnectSP";
-            this.btDisconnectSP.Size = new System.Drawing.Size(78, 28);
-            this.btDisconnectSP.TabIndex = 5;
-            this.btDisconnectSP.Text = "Disconnect";
-            this.btDisconnectSP.UseVisualStyleBackColor = true;
-            this.btDisconnectSP.Click += new System.EventHandler(this.btDisconnectSP_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1603,12 +1604,14 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Naan Control Station";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.tabPage4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
