@@ -25,7 +25,7 @@ namespace GUI
         Connection method = new Connection();
 
         //Serial Port Variables
-        SerialPort port1;
+        SerialPort port1 = new SerialPort();
         //To convert from byte to floats
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         struct boardRegisters
@@ -176,27 +176,54 @@ namespace GUI
                 Parity par = Parity.None;
                 int dataBits = 8;
                 StopBits stpbits = StopBits.One;
-                if (port1 == null)
+                if (port1.IsOpen == false)
                 {
                     port1 = new SerialPort(portName, badRate, par, dataBits, stpbits);
-                    port1.Open();
-                    port1.DataReceived += new SerialDataReceivedEventHandler(port1_DataReceived);
-                    rtbDebug.AppendText("Connected Successfully to ( " + portName + " )....\n");
-                    connectionStatus.ForeColor = Color.Green;
-                    connectionStatus.Text = "Connected to " + port1.PortName;
+                    try
+                    {
+                        port1.Open();
+                        port1.DataReceived += new SerialDataReceivedEventHandler(port1_DataReceived);
+                        rtbDebug.AppendText("Connected Successfully to ( " + portName + " )....\n");
+                        connectionStatus.ForeColor = Color.Green;
+                        connectionStatus.Text = "Connected to " + port1.PortName;
+
+                        timer1.Interval = 200;
+                        timer1.Enabled = true;
+                    }
+                    catch
+                    {
+                        rtbDebug.AppendText("Failed to connect to " + portName + ".\n");
+                        MessageBox.Show("Failed to connect.");
+                    }
+
                 }
                 else
-                    rtbDebug.AppendText("It is already connected to " + port1.PortName + "\n");
-
-                timer1.Interval = 200;
-                timer1.Enabled = true;
-
+                {
+                    rtbDebug.AppendText("" + port1.PortName + " is already connected to.\n");
+                }
             }
             else
             {
-                MessageBox.Show("Select a serial Port first!");
+                MessageBox.Show("Select a serial port!");
             }
 
+        }
+
+        private void btDisconnectSP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                timer1.Enabled = false;
+                port1.Close();
+                rtbDebug.AppendText("Disconnected successfully from ( " + port1.PortName + " )....\n");
+                connectionStatus.ForeColor = Color.Red;
+                connectionStatus.Text = "Not connected";
+                port1.Dispose();
+            }
+            catch
+            {
+                rtbDebug.AppendText("Nothing is connected.\n");
+            }
         }
 
         private void btRefreshSP_Click(object sender, EventArgs e)
@@ -245,6 +272,7 @@ namespace GUI
          * Purpose          : 
          * Last Modification:
          * **********************************************************/
+        /***************Remote Control************************************** */
         private void btGUIIncThrottle_Click(object sender, EventArgs e)
         {
             float incr = 2.0F;
@@ -306,6 +334,19 @@ namespace GUI
             send_OffsetRoll((float)(angle * Math.PI / 180.0));
         }
 
+        private void btShutoffMotors_Click(object sender, EventArgs e)
+        {
+            send_ShuttoffMotors();
+        }
+
+        private void btTurnonMotor_Click(object sender, EventArgs e)
+        {
+            send_TurnonMotors();
+        }
+
+
+
+        /***************Misc Functions************************************** */
         private void btWritePID_Click(object sender, EventArgs e)
         {
             send_WritePID();
@@ -357,10 +398,7 @@ namespace GUI
             send_SoftRestart();
         }
 
-        private void btShutoffMotors_Click(object sender, EventArgs e)
-        {
-            send_ShuttoffMotors();
-        }
+
 
         private void updateRemoteMotors()
         {
@@ -907,15 +945,10 @@ namespace GUI
 
         private void send_SoftRestart()
         {
-
-        }
-
-        private void send_ShuttoffMotors()
-        {
             List<byte> buffer2 = new List<byte> 
                             {
-                                //Reset PID
-                                0x55, 
+                                //Turn off Motor
+                                0xA0, 0xA0,
                         };
 
 
@@ -926,6 +959,36 @@ namespace GUI
             port1.Write(buffer, 0, buffer.Length);
         }
 
+        private void send_ShuttoffMotors()
+        {
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Turn off Motor
+                                0xA2, 0xA2,
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
+        private void send_TurnonMotors()
+        {
+            List<byte> buffer2 = new List<byte> 
+                            {
+                                //Turn on Motor
+                                0xA1, 0xA1,
+                        };
+
+
+            buffer2.Insert(0, 0x03); //Write reg
+            buffer2.Insert(0, (byte)(buffer2.Count() + 1));
+            byte[] buffer = buffer2.ToArray();
+
+            port1.Write(buffer, 0, buffer.Length);
+        }
 
 
         private void send_OffsetRoll(float offset)
@@ -992,5 +1055,9 @@ namespace GUI
 
             port1.Write(buffer, 0, buffer.Length);
         }
+
+
+
+
     }
 }

@@ -169,9 +169,11 @@
             this.chartYaw = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartPitch = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.chartRoll = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btTurnonMotor = new System.Windows.Forms.Button();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.quadcopterModel1 = new GUI.QuadcopterModel();
-            this.chartRoll = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btDisconnectSP = new System.Windows.Forms.Button();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMagn)).BeginInit();
@@ -206,9 +208,9 @@
             // 
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage4.Size = new System.Drawing.Size(537, 593);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Sensors";
@@ -229,9 +231,9 @@
             this.groupBox1.Controls.Add(this.cbyAcce);
             this.groupBox1.Controls.Add(this.cbzAcce);
             this.groupBox1.Location = new System.Drawing.Point(6, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(527, 587);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
@@ -242,7 +244,7 @@
             chartArea1.Name = "ChartArea1";
             this.chartMagn.ChartAreas.Add(chartArea1);
             this.chartMagn.Location = new System.Drawing.Point(6, 388);
-            this.chartMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartMagn.Margin = new System.Windows.Forms.Padding(2);
             this.chartMagn.Name = "chartMagn";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -278,7 +280,7 @@
             this.cbxMagn.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxMagn.ForeColor = System.Drawing.Color.Blue;
             this.cbxMagn.Location = new System.Drawing.Point(91, 367);
-            this.cbxMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxMagn.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMagn.Name = "cbxMagn";
             this.cbxMagn.Size = new System.Drawing.Size(33, 17);
             this.cbxMagn.TabIndex = 20;
@@ -292,7 +294,7 @@
             this.cbyMagn.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbyMagn.ForeColor = System.Drawing.Color.Purple;
             this.cbyMagn.Location = new System.Drawing.Point(236, 367);
-            this.cbyMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbyMagn.Margin = new System.Windows.Forms.Padding(2);
             this.cbyMagn.Name = "cbyMagn";
             this.cbyMagn.Size = new System.Drawing.Size(33, 17);
             this.cbyMagn.TabIndex = 21;
@@ -306,7 +308,7 @@
             this.cbzMagn.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbzMagn.ForeColor = System.Drawing.Color.Green;
             this.cbzMagn.Location = new System.Drawing.Point(387, 367);
-            this.cbzMagn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbzMagn.Margin = new System.Windows.Forms.Padding(2);
             this.cbzMagn.Name = "cbzMagn";
             this.cbzMagn.Size = new System.Drawing.Size(33, 17);
             this.cbzMagn.TabIndex = 22;
@@ -318,7 +320,7 @@
             chartArea2.Name = "ChartArea1";
             this.chartGyro.ChartAreas.Add(chartArea2);
             this.chartGyro.Location = new System.Drawing.Point(6, 213);
-            this.chartGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartGyro.Margin = new System.Windows.Forms.Padding(2);
             this.chartGyro.Name = "chartGyro";
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -354,7 +356,7 @@
             this.cbxGyro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxGyro.ForeColor = System.Drawing.Color.Blue;
             this.cbxGyro.Location = new System.Drawing.Point(91, 192);
-            this.cbxGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxGyro.Margin = new System.Windows.Forms.Padding(2);
             this.cbxGyro.Name = "cbxGyro";
             this.cbxGyro.Size = new System.Drawing.Size(33, 17);
             this.cbxGyro.TabIndex = 16;
@@ -368,7 +370,7 @@
             this.cbyGyro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbyGyro.ForeColor = System.Drawing.Color.Purple;
             this.cbyGyro.Location = new System.Drawing.Point(236, 192);
-            this.cbyGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbyGyro.Margin = new System.Windows.Forms.Padding(2);
             this.cbyGyro.Name = "cbyGyro";
             this.cbyGyro.Size = new System.Drawing.Size(33, 17);
             this.cbyGyro.TabIndex = 17;
@@ -382,7 +384,7 @@
             this.cbzGyro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbzGyro.ForeColor = System.Drawing.Color.Green;
             this.cbzGyro.Location = new System.Drawing.Point(387, 192);
-            this.cbzGyro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbzGyro.Margin = new System.Windows.Forms.Padding(2);
             this.cbzGyro.Name = "cbzGyro";
             this.cbzGyro.Size = new System.Drawing.Size(33, 17);
             this.cbzGyro.TabIndex = 18;
@@ -394,7 +396,7 @@
             chartArea3.Name = "ChartArea1";
             this.chartAcce.ChartAreas.Add(chartArea3);
             this.chartAcce.Location = new System.Drawing.Point(6, 38);
-            this.chartAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartAcce.Margin = new System.Windows.Forms.Padding(2);
             this.chartAcce.Name = "chartAcce";
             series7.ChartArea = "ChartArea1";
             series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -431,7 +433,7 @@
             this.cbxAcce.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbxAcce.ForeColor = System.Drawing.Color.Blue;
             this.cbxAcce.Location = new System.Drawing.Point(91, 17);
-            this.cbxAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxAcce.Margin = new System.Windows.Forms.Padding(2);
             this.cbxAcce.Name = "cbxAcce";
             this.cbxAcce.Size = new System.Drawing.Size(33, 17);
             this.cbxAcce.TabIndex = 3;
@@ -445,7 +447,7 @@
             this.cbyAcce.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbyAcce.ForeColor = System.Drawing.Color.Purple;
             this.cbyAcce.Location = new System.Drawing.Point(236, 17);
-            this.cbyAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbyAcce.Margin = new System.Windows.Forms.Padding(2);
             this.cbyAcce.Name = "cbyAcce";
             this.cbyAcce.Size = new System.Drawing.Size(33, 17);
             this.cbyAcce.TabIndex = 4;
@@ -459,7 +461,7 @@
             this.cbzAcce.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbzAcce.ForeColor = System.Drawing.Color.Green;
             this.cbzAcce.Location = new System.Drawing.Point(387, 17);
-            this.cbzAcce.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbzAcce.Margin = new System.Windows.Forms.Padding(2);
             this.cbzAcce.Name = "cbzAcce";
             this.cbzAcce.Size = new System.Drawing.Size(33, 17);
             this.cbzAcce.TabIndex = 5;
@@ -472,9 +474,9 @@
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.groupBox10);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(537, 593);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Control";
@@ -793,9 +795,9 @@
             this.groupBox10.Controls.Add(this.groupBox3);
             this.groupBox10.Controls.Add(this.groupBox6);
             this.groupBox10.Location = new System.Drawing.Point(13, 4);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox10.Size = new System.Drawing.Size(505, 298);
             this.groupBox10.TabIndex = 10;
             this.groupBox10.TabStop = false;
@@ -818,9 +820,9 @@
             this.groupBox3.Controls.Add(this.tbMotor4);
             this.groupBox3.Controls.Add(this.pbMotor2);
             this.groupBox3.Location = new System.Drawing.Point(15, 213);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(485, 77);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
@@ -855,7 +857,7 @@
             // pbMotor1
             // 
             this.pbMotor1.Location = new System.Drawing.Point(70, 22);
-            this.pbMotor1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbMotor1.Margin = new System.Windows.Forms.Padding(2);
             this.pbMotor1.Name = "pbMotor1";
             this.pbMotor1.Size = new System.Drawing.Size(83, 16);
             this.pbMotor1.TabIndex = 1;
@@ -864,7 +866,7 @@
             // 
             this.tbMotor1.Enabled = false;
             this.tbMotor1.Location = new System.Drawing.Point(158, 22);
-            this.tbMotor1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMotor1.Margin = new System.Windows.Forms.Padding(2);
             this.tbMotor1.Name = "tbMotor1";
             this.tbMotor1.Size = new System.Drawing.Size(38, 20);
             this.tbMotor1.TabIndex = 4;
@@ -882,7 +884,7 @@
             // pbMotor4
             // 
             this.pbMotor4.Location = new System.Drawing.Point(70, 51);
-            this.pbMotor4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbMotor4.Margin = new System.Windows.Forms.Padding(2);
             this.pbMotor4.Name = "pbMotor4";
             this.pbMotor4.Size = new System.Drawing.Size(83, 16);
             this.pbMotor4.TabIndex = 3;
@@ -891,7 +893,7 @@
             // 
             this.tbMotor3.Enabled = false;
             this.tbMotor3.Location = new System.Drawing.Point(217, 51);
-            this.tbMotor3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMotor3.Margin = new System.Windows.Forms.Padding(2);
             this.tbMotor3.Name = "tbMotor3";
             this.tbMotor3.Size = new System.Drawing.Size(38, 20);
             this.tbMotor3.TabIndex = 5;
@@ -909,7 +911,7 @@
             // pbMotor3
             // 
             this.pbMotor3.Location = new System.Drawing.Point(259, 52);
-            this.pbMotor3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbMotor3.Margin = new System.Windows.Forms.Padding(2);
             this.pbMotor3.Name = "pbMotor3";
             this.pbMotor3.Size = new System.Drawing.Size(83, 16);
             this.pbMotor3.TabIndex = 2;
@@ -918,7 +920,7 @@
             // 
             this.tbMotor2.Enabled = false;
             this.tbMotor2.Location = new System.Drawing.Point(217, 22);
-            this.tbMotor2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMotor2.Margin = new System.Windows.Forms.Padding(2);
             this.tbMotor2.Name = "tbMotor2";
             this.tbMotor2.Size = new System.Drawing.Size(38, 20);
             this.tbMotor2.TabIndex = 6;
@@ -937,7 +939,7 @@
             // 
             this.tbMotor4.Enabled = false;
             this.tbMotor4.Location = new System.Drawing.Point(158, 51);
-            this.tbMotor4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMotor4.Margin = new System.Windows.Forms.Padding(2);
             this.tbMotor4.Name = "tbMotor4";
             this.tbMotor4.Size = new System.Drawing.Size(38, 20);
             this.tbMotor4.TabIndex = 7;
@@ -946,13 +948,14 @@
             // pbMotor2
             // 
             this.pbMotor2.Location = new System.Drawing.Point(259, 22);
-            this.pbMotor2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbMotor2.Margin = new System.Windows.Forms.Padding(2);
             this.pbMotor2.Name = "pbMotor2";
             this.pbMotor2.Size = new System.Drawing.Size(83, 16);
             this.pbMotor2.TabIndex = 0;
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btTurnonMotor);
             this.groupBox6.Controls.Add(this.label25);
             this.groupBox6.Controls.Add(this.label24);
             this.groupBox6.Controls.Add(this.label23);
@@ -1056,7 +1059,7 @@
             // 
             this.btGUIForward.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btGUIForward.Location = new System.Drawing.Point(200, 41);
-            this.btGUIForward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIForward.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIForward.Name = "btGUIForward";
             this.btGUIForward.Size = new System.Drawing.Size(65, 37);
             this.btGUIForward.TabIndex = 4;
@@ -1067,10 +1070,10 @@
             // btShutoffMotors
             // 
             this.btShutoffMotors.BackColor = System.Drawing.Color.Red;
-            this.btShutoffMotors.Location = new System.Drawing.Point(408, 142);
-            this.btShutoffMotors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btShutoffMotors.Location = new System.Drawing.Point(426, 142);
+            this.btShutoffMotors.Margin = new System.Windows.Forms.Padding(2);
             this.btShutoffMotors.Name = "btShutoffMotors";
-            this.btShutoffMotors.Size = new System.Drawing.Size(72, 43);
+            this.btShutoffMotors.Size = new System.Drawing.Size(54, 43);
             this.btShutoffMotors.TabIndex = 10;
             this.btShutoffMotors.Text = "Shutoff Motors";
             this.btShutoffMotors.UseVisualStyleBackColor = false;
@@ -1080,7 +1083,7 @@
             // 
             this.btGUILeft.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btGUILeft.Location = new System.Drawing.Point(141, 83);
-            this.btGUILeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUILeft.Margin = new System.Windows.Forms.Padding(2);
             this.btGUILeft.Name = "btGUILeft";
             this.btGUILeft.Size = new System.Drawing.Size(58, 37);
             this.btGUILeft.TabIndex = 6;
@@ -1092,7 +1095,7 @@
             // 
             this.btGUIRotateLeft.BackColor = System.Drawing.Color.Orange;
             this.btGUIRotateLeft.Location = new System.Drawing.Point(125, 18);
-            this.btGUIRotateLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIRotateLeft.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIRotateLeft.Name = "btGUIRotateLeft";
             this.btGUIRotateLeft.Size = new System.Drawing.Size(74, 22);
             this.btGUIRotateLeft.TabIndex = 2;
@@ -1104,7 +1107,7 @@
             // 
             this.btGUIBackward.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btGUIBackward.Location = new System.Drawing.Point(200, 125);
-            this.btGUIBackward.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIBackward.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIBackward.Name = "btGUIBackward";
             this.btGUIBackward.Size = new System.Drawing.Size(65, 37);
             this.btGUIBackward.TabIndex = 5;
@@ -1116,7 +1119,7 @@
             // 
             this.btGUIDecThrottle.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btGUIDecThrottle.Location = new System.Drawing.Point(11, 164);
-            this.btGUIDecThrottle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIDecThrottle.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIDecThrottle.Name = "btGUIDecThrottle";
             this.btGUIDecThrottle.Size = new System.Drawing.Size(41, 21);
             this.btGUIDecThrottle.TabIndex = 9;
@@ -1128,7 +1131,7 @@
             // 
             this.btGUIRight.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btGUIRight.Location = new System.Drawing.Point(263, 83);
-            this.btGUIRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIRight.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIRight.Name = "btGUIRight";
             this.btGUIRight.Size = new System.Drawing.Size(58, 37);
             this.btGUIRight.TabIndex = 7;
@@ -1140,7 +1143,7 @@
             // 
             this.btGUIRotateRight.BackColor = System.Drawing.Color.Orange;
             this.btGUIRotateRight.Location = new System.Drawing.Point(263, 18);
-            this.btGUIRotateRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIRotateRight.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIRotateRight.Name = "btGUIRotateRight";
             this.btGUIRotateRight.Size = new System.Drawing.Size(74, 22);
             this.btGUIRotateRight.TabIndex = 3;
@@ -1152,7 +1155,7 @@
             // 
             this.btGUIIncThrottle.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btGUIIncThrottle.Location = new System.Drawing.Point(11, 137);
-            this.btGUIIncThrottle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btGUIIncThrottle.Margin = new System.Windows.Forms.Padding(2);
             this.btGUIIncThrottle.Name = "btGUIIncThrottle";
             this.btGUIIncThrottle.Size = new System.Drawing.Size(41, 22);
             this.btGUIIncThrottle.TabIndex = 8;
@@ -1167,9 +1170,9 @@
             this.tabPage1.Controls.Add(this.gbSP);
             this.tabPage1.Controls.Add(this.gbWIFI);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(537, 593);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Connection";
@@ -1180,7 +1183,7 @@
             this.rtbDebug.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbDebug.Location = new System.Drawing.Point(18, 307);
-            this.rtbDebug.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rtbDebug.Margin = new System.Windows.Forms.Padding(2);
             this.rtbDebug.Name = "rtbDebug";
             this.rtbDebug.Size = new System.Drawing.Size(505, 225);
             this.rtbDebug.TabIndex = 4;
@@ -1206,13 +1209,14 @@
             // gbSP
             // 
             this.gbSP.AutoSize = true;
+            this.gbSP.Controls.Add(this.btDisconnectSP);
             this.gbSP.Controls.Add(this.btRefreshSP);
             this.gbSP.Controls.Add(this.btConnectSP);
             this.gbSP.Controls.Add(this.cbSP);
             this.gbSP.Location = new System.Drawing.Point(18, 17);
-            this.gbSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbSP.Margin = new System.Windows.Forms.Padding(2);
             this.gbSP.Name = "gbSP";
-            this.gbSP.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbSP.Padding = new System.Windows.Forms.Padding(2);
             this.gbSP.Size = new System.Drawing.Size(242, 161);
             this.gbSP.TabIndex = 2;
             this.gbSP.TabStop = false;
@@ -1221,7 +1225,7 @@
             // btRefreshSP
             // 
             this.btRefreshSP.Location = new System.Drawing.Point(4, 64);
-            this.btRefreshSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btRefreshSP.Margin = new System.Windows.Forms.Padding(2);
             this.btRefreshSP.Name = "btRefreshSP";
             this.btRefreshSP.Size = new System.Drawing.Size(74, 28);
             this.btRefreshSP.TabIndex = 4;
@@ -1232,7 +1236,7 @@
             // btConnectSP
             // 
             this.btConnectSP.Location = new System.Drawing.Point(4, 110);
-            this.btConnectSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btConnectSP.Margin = new System.Windows.Forms.Padding(2);
             this.btConnectSP.Name = "btConnectSP";
             this.btConnectSP.Size = new System.Drawing.Size(74, 28);
             this.btConnectSP.TabIndex = 1;
@@ -1245,7 +1249,7 @@
             this.cbSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSP.FormattingEnabled = true;
             this.cbSP.Location = new System.Drawing.Point(4, 30);
-            this.cbSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSP.Margin = new System.Windows.Forms.Padding(2);
             this.cbSP.Name = "cbSP";
             this.cbSP.Size = new System.Drawing.Size(234, 21);
             this.cbSP.TabIndex = 3;
@@ -1258,9 +1262,9 @@
             this.gbWIFI.Controls.Add(this.btConnectWIFI);
             this.gbWIFI.Controls.Add(this.cbWIFI);
             this.gbWIFI.Location = new System.Drawing.Point(284, 19);
-            this.gbWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbWIFI.Margin = new System.Windows.Forms.Padding(2);
             this.gbWIFI.Name = "gbWIFI";
-            this.gbWIFI.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbWIFI.Padding = new System.Windows.Forms.Padding(2);
             this.gbWIFI.Size = new System.Drawing.Size(238, 161);
             this.gbWIFI.TabIndex = 2;
             this.gbWIFI.TabStop = false;
@@ -1272,7 +1276,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btRefreshWIFI.Location = new System.Drawing.Point(5, 64);
-            this.btRefreshWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btRefreshWIFI.Margin = new System.Windows.Forms.Padding(2);
             this.btRefreshWIFI.Name = "btRefreshWIFI";
             this.btRefreshWIFI.Size = new System.Drawing.Size(74, 28);
             this.btRefreshWIFI.TabIndex = 6;
@@ -1286,7 +1290,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btConnectWIFI.Location = new System.Drawing.Point(5, 110);
-            this.btConnectWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btConnectWIFI.Margin = new System.Windows.Forms.Padding(2);
             this.btConnectWIFI.Name = "btConnectWIFI";
             this.btConnectWIFI.Size = new System.Drawing.Size(74, 28);
             this.btConnectWIFI.TabIndex = 5;
@@ -1300,7 +1304,7 @@
             this.cbWIFI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWIFI.FormattingEnabled = true;
             this.cbWIFI.Location = new System.Drawing.Point(5, 30);
-            this.cbWIFI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbWIFI.Margin = new System.Windows.Forms.Padding(2);
             this.cbWIFI.Name = "cbWIFI";
             this.cbWIFI.Size = new System.Drawing.Size(229, 21);
             this.cbWIFI.TabIndex = 4;
@@ -1315,7 +1319,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, -1);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(545, 619);
@@ -1341,7 +1345,7 @@
             this.tabPage5.Controls.Add(this.chartRoll);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(537, 593);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Orientation";
@@ -1462,7 +1466,7 @@
             chartArea4.Name = "ChartArea1";
             this.chartYaw.ChartAreas.Add(chartArea4);
             this.chartYaw.Location = new System.Drawing.Point(-16, 455);
-            this.chartYaw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartYaw.Margin = new System.Windows.Forms.Padding(2);
             this.chartYaw.Name = "chartYaw";
             series10.ChartArea = "ChartArea1";
             series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1492,7 +1496,7 @@
             chartArea5.Name = "ChartArea1";
             this.chartPitch.ChartAreas.Add(chartArea5);
             this.chartPitch.Location = new System.Drawing.Point(-16, 326);
-            this.chartPitch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartPitch.Margin = new System.Windows.Forms.Padding(2);
             this.chartPitch.Name = "chartPitch";
             series12.ChartArea = "ChartArea1";
             series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1520,23 +1524,13 @@
             // 
             this.groupBox11.Controls.Add(this.elementHost1);
             this.groupBox11.Location = new System.Drawing.Point(85, 3);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox11.Size = new System.Drawing.Size(334, 200);
             this.groupBox11.TabIndex = 23;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Animation";
-            // 
-            // elementHost1
-            // 
-            this.elementHost1.BackColor = System.Drawing.Color.Gainsboro;
-            this.elementHost1.Location = new System.Drawing.Point(3, 12);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(326, 185);
-            this.elementHost1.TabIndex = 0;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = this.quadcopterModel1;
             // 
             // chartRoll
             // 
@@ -1544,7 +1538,7 @@
             chartArea6.Name = "ChartArea1";
             this.chartRoll.ChartAreas.Add(chartArea6);
             this.chartRoll.Location = new System.Drawing.Point(-16, 207);
-            this.chartRoll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chartRoll.Margin = new System.Windows.Forms.Padding(2);
             this.chartRoll.Name = "chartRoll";
             series14.ChartArea = "ChartArea1";
             series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -1568,6 +1562,38 @@
             title6.Text = "Roll";
             this.chartRoll.Titles.Add(title6);
             // 
+            // btTurnonMotor
+            // 
+            this.btTurnonMotor.BackColor = System.Drawing.Color.Green;
+            this.btTurnonMotor.Location = new System.Drawing.Point(369, 142);
+            this.btTurnonMotor.Margin = new System.Windows.Forms.Padding(2);
+            this.btTurnonMotor.Name = "btTurnonMotor";
+            this.btTurnonMotor.Size = new System.Drawing.Size(53, 43);
+            this.btTurnonMotor.TabIndex = 26;
+            this.btTurnonMotor.Text = "Turn on Motors";
+            this.btTurnonMotor.UseVisualStyleBackColor = false;
+            this.btTurnonMotor.Click += new System.EventHandler(this.btTurnonMotor_Click);
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.BackColor = System.Drawing.Color.Gainsboro;
+            this.elementHost1.Location = new System.Drawing.Point(3, 12);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(326, 185);
+            this.elementHost1.TabIndex = 0;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.quadcopterModel1;
+            // 
+            // btDisconnectSP
+            // 
+            this.btDisconnectSP.Location = new System.Drawing.Point(83, 110);
+            this.btDisconnectSP.Name = "btDisconnectSP";
+            this.btDisconnectSP.Size = new System.Drawing.Size(78, 28);
+            this.btDisconnectSP.TabIndex = 5;
+            this.btDisconnectSP.Text = "Disconnect";
+            this.btDisconnectSP.UseVisualStyleBackColor = true;
+            this.btDisconnectSP.Click += new System.EventHandler(this.btDisconnectSP_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1577,7 +1603,7 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -1736,6 +1762,8 @@
         private System.Windows.Forms.TextBox tbGUIYaw;
         private System.Windows.Forms.TextBox tbGUIPitch;
         private System.Windows.Forms.TextBox tbGUIRoll;
+        private System.Windows.Forms.Button btTurnonMotor;
+        private System.Windows.Forms.Button btDisconnectSP;
     }
 }
 
