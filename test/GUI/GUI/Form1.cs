@@ -182,6 +182,7 @@ namespace GUI
                     try
                     {
                         port1.Open();
+                        port1.WriteTimeout = 100;
                         port1.DataReceived += new SerialDataReceivedEventHandler(port1_DataReceived);
                         rtbDebug.AppendText("Connected Successfully to ( " + portName + " )....\n");
                         connectionStatus.ForeColor = Color.Green;
@@ -808,7 +809,20 @@ namespace GUI
             buffer2.Insert(0, (byte)(buffer2.Count() + 1));
             byte[] buffer = buffer2.ToArray();
 
-            port1.Write(buffer, 0, buffer.Length);
+            try
+            {
+                port1.Write(buffer, 0, buffer.Length);
+            }
+            catch
+            {
+                timer1.Enabled = false;
+                port1.Close();
+                rtbDebug.AppendText("Disconnected successfully from ( " + port1.PortName + " )....\n");
+                connectionStatus.ForeColor = Color.Red;
+                connectionStatus.Text = "Not connected";
+                port1.Dispose();
+                MessageBox.Show("Something went wrong in transmission");
+            }
         }
 
         private void send_WritePID()
