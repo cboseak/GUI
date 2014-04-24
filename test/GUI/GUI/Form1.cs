@@ -188,7 +188,7 @@ namespace GUI
                         connectionStatus.ForeColor = Color.Green;
                         connectionStatus.Text = "Connected to " + port1.PortName;
 
-                        timer1.Interval = 200;
+                        timer1.Interval = 100;
                         timer1.Enabled = true;
                     }
                     catch
@@ -419,6 +419,7 @@ namespace GUI
             if ((diff_motor1 > 0) && (diff_motor2 > 0) &&
                 (diff_motor3 > 0) && (diff_motor4 > 0))
             {
+                
                 pbMotor1.Value = (int)(100.0 * (diff_motor1) / (max_val - min_val));
                 pbMotor2.Value = (int)(100.0 * (diff_motor2) / (max_val - min_val));
                 pbMotor3.Value = (int)(100.0 * (diff_motor3) / (max_val - min_val));
@@ -655,7 +656,7 @@ namespace GUI
         {
             double roll_perc_ang = (CurrRegs.roll * 180.0 / Math.PI);
             double pitch_perc_ang = (CurrRegs.pitch * 180.0 / Math.PI);
-            double yaw_perc_ang = -1 * (CurrRegs.yaw * 180.0 / Math.PI);
+            double yaw_perc_ang = (CurrRegs.yaw * 180.0 / Math.PI);
 
             double roll_des_ang = ((CurrRegs.desired_roll + CurrRegs.gui_roll) * 180.0 / Math.PI);
             double pitch_des_ang = ((CurrRegs.desired_pitch + CurrRegs.gui_pitch) * 180.0 / Math.PI);
@@ -752,7 +753,14 @@ namespace GUI
                     updateRemoteMotors();
 
                     //Quad copter model updating
-                    quadcopterModel1.UpdateModel(CurrRegs.roll, CurrRegs.pitch, -1 * CurrRegs.yaw);
+                    if (checkBox1.Checked == false)
+                    {
+                        quadcopterModel1.UpdateModel(CurrRegs.roll, CurrRegs.pitch, CurrRegs.yaw);
+                    }
+                    else
+                    {
+                        quadcopterModel1.UpdateModel(CurrRegs.roll, CurrRegs.pitch, 0);
+                    }
 
                 }
                 else

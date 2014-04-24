@@ -172,8 +172,10 @@
             this.chartPitch = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.chartRoll = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btResetFilter2 = new System.Windows.Forms.Button();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.quadcopterModel1 = new GUI.QuadcopterModel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartMagn)).BeginInit();
@@ -858,6 +860,7 @@
             // 
             this.pbMotor1.Location = new System.Drawing.Point(70, 22);
             this.pbMotor1.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMotor1.Maximum = 110;
             this.pbMotor1.Name = "pbMotor1";
             this.pbMotor1.Size = new System.Drawing.Size(83, 16);
             this.pbMotor1.TabIndex = 1;
@@ -885,6 +888,7 @@
             // 
             this.pbMotor4.Location = new System.Drawing.Point(70, 51);
             this.pbMotor4.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMotor4.Maximum = 110;
             this.pbMotor4.Name = "pbMotor4";
             this.pbMotor4.Size = new System.Drawing.Size(83, 16);
             this.pbMotor4.TabIndex = 3;
@@ -912,6 +916,7 @@
             // 
             this.pbMotor3.Location = new System.Drawing.Point(259, 52);
             this.pbMotor3.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMotor3.Maximum = 110;
             this.pbMotor3.Name = "pbMotor3";
             this.pbMotor3.Size = new System.Drawing.Size(83, 16);
             this.pbMotor3.TabIndex = 2;
@@ -949,6 +954,7 @@
             // 
             this.pbMotor2.Location = new System.Drawing.Point(259, 22);
             this.pbMotor2.Margin = new System.Windows.Forms.Padding(2);
+            this.pbMotor2.Maximum = 110;
             this.pbMotor2.Name = "pbMotor2";
             this.pbMotor2.Size = new System.Drawing.Size(83, 16);
             this.pbMotor2.TabIndex = 0;
@@ -1350,6 +1356,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.checkBox1);
+            this.tabPage5.Controls.Add(this.btResetFilter2);
             this.tabPage5.Controls.Add(this.tbYawDes);
             this.tabPage5.Controls.Add(this.tbYawPerc);
             this.tabPage5.Controls.Add(this.label19);
@@ -1585,6 +1593,16 @@
             title6.Text = "Roll";
             this.chartRoll.Titles.Add(title6);
             // 
+            // btResetFilter2
+            // 
+            this.btResetFilter2.Location = new System.Drawing.Point(434, 15);
+            this.btResetFilter2.Name = "btResetFilter2";
+            this.btResetFilter2.Size = new System.Drawing.Size(75, 23);
+            this.btResetFilter2.TabIndex = 36;
+            this.btResetFilter2.Text = "Reset Filter";
+            this.btResetFilter2.UseVisualStyleBackColor = true;
+            this.btResetFilter2.Click += new System.EventHandler(this.btResetFilter_Click);
+            // 
             // elementHost1
             // 
             this.elementHost1.BackColor = System.Drawing.Color.Gainsboro;
@@ -1594,6 +1612,16 @@
             this.elementHost1.TabIndex = 0;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = this.quadcopterModel1;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(434, 59);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(63, 17);
+            this.checkBox1.TabIndex = 37;
+            this.checkBox1.Text = "Fix Yaw";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -1767,6 +1795,8 @@
         private System.Windows.Forms.TextBox tbGUIRoll;
         private System.Windows.Forms.Button btTurnonMotor;
         private System.Windows.Forms.Button btDisconnectSP;
+        private System.Windows.Forms.Button btResetFilter2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
