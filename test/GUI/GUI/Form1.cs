@@ -652,8 +652,8 @@ namespace GUI
         * **********************************************************/
         private void updateOrientationGraphs()
         {
-            double roll_perc_ang = -1*(CurrRegs.roll * 180.0 / Math.PI);
-            double pitch_perc_ang = -1 * (CurrRegs.pitch * 180.0 / Math.PI);
+            double roll_perc_ang = (CurrRegs.roll * 180.0 / Math.PI);
+            double pitch_perc_ang = (CurrRegs.pitch * 180.0 / Math.PI);
             double yaw_perc_ang = -1 * (CurrRegs.yaw * 180.0 / Math.PI);
 
             double roll_des_ang = ((CurrRegs.desired_roll + CurrRegs.gui_roll) * 180.0 / Math.PI);
@@ -751,7 +751,7 @@ namespace GUI
                     updateRemoteMotors();
 
                     //Quad copter model updating
-                    quadcopterModel1.UpdateModel(-1 * CurrRegs.roll, -1 * CurrRegs.pitch, -1 * CurrRegs.yaw);
+                    quadcopterModel1.UpdateModel(CurrRegs.roll, CurrRegs.pitch, -1 * CurrRegs.yaw);
 
                 }
                 else
