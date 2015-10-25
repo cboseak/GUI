@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -278,71 +278,138 @@ namespace GUI
         {
             float incr = 2.0F;
 
-            if (CurrRegs.gui_throttle < 100.0)
+            try
             {
-                send_OffsetThrottle(incr);
+                if (CurrRegs.gui_throttle < 100.0)
+                {
+                    send_OffsetThrottle(incr);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
             }
         }
 
         private void btGUIDecThrottle_Click(object sender, EventArgs e)
         {
             float dec = -2.0F;
-            if (CurrRegs.gui_throttle > 0.0)
+            try
             {
-                send_OffsetThrottle(dec);
+                if (CurrRegs.gui_throttle > 0.0)
+                {
+                    send_OffsetThrottle(dec);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
             }
         }
 
         private void btGUIRotateLeft_Click(object sender, EventArgs e)
         {
             float angle = -5.0F;
-
-            send_OffsetYaw((float)(angle * Math.PI / 180.0));
+            try
+            {
+                send_OffsetYaw((float)(angle * Math.PI / 180.0));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btGUIRotateRight_Click(object sender, EventArgs e)
         {
             float angle = 5.0F;
-
-            send_OffsetYaw((float)(angle * Math.PI / 180.0));
+            try
+            {
+                send_OffsetYaw((float)(angle * Math.PI / 180.0));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btGUIForward_Click(object sender, EventArgs e)
         {
             float angle = -5.0F;
-
-            send_OffsetPitch((float)(angle * Math.PI / 180.0));
+            try
+            {
+                send_OffsetPitch((float)(angle * Math.PI / 180.0));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btGUIBackward_Click(object sender, EventArgs e)
         {
             float angle = 5.0F;
-
-            send_OffsetPitch((float)(angle * Math.PI / 180.0));
+            try
+            {
+                send_OffsetPitch((float)(angle * Math.PI / 180.0));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btGUILeft_Click(object sender, EventArgs e)
         {
             float angle = -5.0F;
-
-            send_OffsetRoll((float)(angle * Math.PI / 180.0));
+            try
+            {
+                send_OffsetRoll((float)(angle * Math.PI / 180.0));
+            }
+                        
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btGUIRight_Click(object sender, EventArgs e)
         {
             float angle = 5.0F;
+            try
+            {
+                send_OffsetRoll((float)(angle * Math.PI / 180.0));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
 
-            send_OffsetRoll((float)(angle * Math.PI / 180.0));
         }
 
         private void btShutoffMotors_Click(object sender, EventArgs e)
         {
-            send_ShuttoffMotors();
+            try
+            {
+                send_ShuttoffMotors();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
+
         }
 
         private void btTurnonMotor_Click(object sender, EventArgs e)
         {
-            send_TurnonMotors();
+            try
+            {
+                send_TurnonMotors();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
 
@@ -350,7 +417,14 @@ namespace GUI
         /***************Misc Functions************************************** */
         private void btWritePID_Click(object sender, EventArgs e)
         {
-            send_WritePID();
+            try
+            {
+                send_WritePID();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btReadPID_Click(object sender, EventArgs e)
@@ -380,23 +454,51 @@ namespace GUI
 
         private void btResetPID_Click(object sender, EventArgs e)
         {
-            send_ResetPID();
+            try
+            {
+                send_ResetPID();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btResetFilter_Click(object sender, EventArgs e)
         {
-            send_ResetFilter();
+            try
+            {
+                send_ResetFilter();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btIdleMotor_Click(object sender, EventArgs e)
         {
-            send_IdleMotors();
+            try
+            {
+                send_IdleMotors();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
         private void btSoftRestart_Click(object sender, EventArgs e)
         {
             //Doesn't do anything atm
-            send_SoftRestart();
+            try
+            {
+                send_SoftRestart();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Device not connected");
+            }
         }
 
 
@@ -1068,6 +1170,11 @@ namespace GUI
             byte[] buffer = buffer2.ToArray();
 
             port1.Write(buffer, 0, buffer.Length);
+        }
+
+        private void cbWIFI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 
